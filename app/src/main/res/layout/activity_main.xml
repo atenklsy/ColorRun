@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <FrameLayout
+        android:id="@+id/flMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rgMainBottom" >
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_above="@+id/rgMainBottom"
+        android:background="#cdcdcd" />
+
+    <RadioGroup
+        android:id="@+id/rgMainBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingTop="5dp" >
+
+        <RadioButton
+            android:id="@+id/rbRun"
+            style="@style/rgMainBottonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/btn_tab_lerun_selector"
+            android:text="乐跑" />
+
+        <RadioButton
+            android:id="@+id/rbShow"
+            style="@style/rgMainBottonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/btn_tab_show_selector"
+            android:text="秀" />
+
+        <RadioButton
+            android:id="@+id/rbHistory"
+            style="@style/rgMainBottonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/btn_tab_history_selector"
+            android:text="回顾" />
+
+        <RadioButton
+            android:id="@+id/rbMe"
+            style="@style/rgMainBottonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/btn_tab_me_selector"
+            android:text="我的" />
+    </RadioGroup>
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/ivShow_UserHead"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/image_head" />
+
+    <TextView
+        android:id="@+id/tvShow_UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="@+id/ivShow_UserHead"
+        android:layout_toRightOf="@+id/ivShow_UserHead"
+        android:text="我是卡乐跑" />
+
+    <ImageView
+        android:id="@+id/ivShowPic"
+        android:layout_width="130dp"
+        android:layout_height="90dp"
+        android:layout_alignLeft="@+id/tvShow_UserName"
+        android:layout_below="@+id/ivShow_UserHead"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/historybackground" />
+
+    <TextView
+        android:id="@+id/tvWordContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivShowPic"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tvSendTime"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvWordContent"
+
+        android:text="2小时前" />
+
+    <TextView
+        android:id="@+id/tvShow_Heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvWordContent"
+        android:layout_toLeftOf="@+id/tvShow_Comment"
+        android:drawableLeft="@mipmap/show_heart"
+        android:gravity="center"
+        android:text="50" />
+
+    <TextView
+        android:id="@+id/tvShow_Comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvWordContent"
+        android:layout_toLeftOf="@+id/tvShow_Share"
+        android:drawableLeft="@mipmap/show_comment"
+        android:gravity="center"
+        android:text="100" />
+
+    <TextView
+        android:id="@+id/tvShow_Share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvWordContent"
+        android:drawableLeft="@mipmap/show_share"
+        android:gravity="center" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/ViewLine" />
+
+
+</RelativeLayout>
