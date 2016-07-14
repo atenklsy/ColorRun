@@ -15,9 +15,10 @@
         android:id="@+id/tvShow_UserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="@+id/ivShow_UserHead"
-        android:layout_toRightOf="@+id/ivShow_UserHead"
-        android:text="我是卡乐跑" />
+        android:layout_marginTop="10dp"
+        android:text="@string/tvShow_username"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/ivShow_UserHead" />
 
     <ImageView
         android:id="@+id/ivShowPic"
@@ -34,16 +35,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivShowPic"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        />
+        android:text="@string/ShowWord"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:id="@+id/tvSendTime"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvWordContent"
-
         android:text="2小时前" />
 
     <TextView
@@ -61,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvWordContent"
+        android:layout_marginLeft="5dp"
         android:layout_toLeftOf="@+id/tvShow_Share"
         android:drawableLeft="@mipmap/show_comment"
         android:gravity="center"
@@ -71,15 +71,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
         android:layout_below="@+id/tvWordContent"
         android:drawableLeft="@mipmap/show_share"
         android:gravity="center" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/ViewLine" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:background="@color/ViewLine" />-->
 
 
 </RelativeLayout>
