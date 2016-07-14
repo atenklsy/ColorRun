@@ -4,6 +4,7 @@ package com.mengshitech.colorrun.fragment.show;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,8 @@ public class showFragment extends Fragment {
      * 加载数据
      */
     private void initDatas() {
-        lvShowContent.setAdapter(new ShowAdapter(mActivity, mShowList, lvShowContent));
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        lvShowContent.setAdapter(new ShowAdapter(mActivity, mShowList, lvShowContent,fm));
     }
 
     /**
@@ -59,7 +61,7 @@ public class showFragment extends Fragment {
         mShowEntity1.setIvUserHead(R.mipmap.image_head);
         mShowEntity1.setTvShow_UserName("我叫小灰灰");
         mShowEntity1.setIvShowPic(R.mipmap.historybackground);
-        mShowEntity1.setTvShow_Comment("#爱上乐跑#本期跑者Vinglu，他完成了“为爱同行”2016南昌乐跑公益活动，感慨道，“跑了就懂，只要坚持，蜗牛也是牛！”。");
+        mShowEntity1.setTvWordContent("#爱上乐跑#本期跑者Vinglu，他完成了“为爱同行”2016南昌乐跑公益活动，感慨道，“跑了就懂，只要坚持，蜗牛也是牛！”。");
         mShowEntity1.setTvSendTime("2016年7月11日15:25");
         mShowEntity1.setTvShow_Heart("129");
         mShowEntity1.setTvShow_Comment("221");

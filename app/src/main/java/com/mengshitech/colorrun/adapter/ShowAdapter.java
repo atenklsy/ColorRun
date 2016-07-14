@@ -1,6 +1,8 @@
 package com.mengshitech.colorrun.adapter;
 
 import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -11,20 +13,24 @@ import android.widget.TextView;
 
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.bean.ShowEntity;
+import com.mengshitech.colorrun.fragment.show.showDetailFragment;
 import com.mengshitech.colorrun.utils.Utility;
 
 import java.util.List;
 
-public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickListener{
+public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
+    FragmentManager fm;
+    ShowEntity mShowEntity;
     private List<ShowEntity> mShowList;
     private ListView mListView;
     private Activity mActivity;
 
     public ShowAdapter(Activity activity, List<ShowEntity> showList,
-                       ListView listView) {
+                       ListView listView, FragmentManager fm) {
         mActivity = activity;
         mShowList = showList;
         mListView = listView;
+        this.fm = fm;
     }
 
     @Override
@@ -44,7 +50,7 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ShowEntity mShowEntity = getItem(position);
+        mShowEntity = getItem(position);
         // 上面是该了getItem的方法，让她返回一个HistoryEntity类型的对象
         // HistoryEntity mHistoryEntity = mHistotyList.get(position);
         ViewHolder holder = null;
@@ -64,6 +70,7 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
                     .findViewById(R.id.tvSendTime);
             holder.tvShow_Heart = (TextView) convertView
                     .findViewById(R.id.tvShow_Heart);
+
             holder.tvShow_Comment = (TextView) convertView
                     .findViewById(R.id.tvShow_Comment);
             holder.tvShow_Share = (TextView) convertView
@@ -80,13 +87,23 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
         holder.tvShow_Heart.setText(mShowEntity.getTvShow_Heart());
         holder.tvShow_Comment.setText(mShowEntity.getTvShow_Comment());
         holder.tvShow_Share.setText(mShowEntity.getTvShow_Share());
+        /**
+         * 改变drawable的大小
+         */
+        Utility.changeDrawable(holder.tvShow_Heart, R.mipmap.show_heart, 0);
+        Utility.changeDrawable(holder.tvShow_Comment, R.mipmap.show_comment, 0);
+        Utility.changeDrawable(holder.tvShow_Share, R.mipmap.show_share, 0);
         mListView.setOnItemClickListener(this);
         return convertView;
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        Utility.replaceFragment();
+        showDetailFragment mShowDetailFragment = new showDetailFragment();
+        Bundle args = new Bundle();
+        args.putSerializable("mShowEntity", mShowEntity);
+        mShowDetailFragment.setArguments(args);
+        Utility.replace2DetailFragment(fm, mShowDetailFragment);
     }
 
     class ViewHolder {

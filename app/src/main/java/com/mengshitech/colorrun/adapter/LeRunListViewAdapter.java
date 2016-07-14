@@ -47,7 +47,7 @@ public class LeRunListViewAdapter extends BaseAdapter {
 		LeRunEntity mLeRunEntity = getItem(position);
 		ViewHolder holder = null;
 		if (convertView == null) {
-			convertView = View.inflate(mActivity, R.layout.item_lerunlistview,
+			convertView = View.inflate(mActivity, R.layout.item_lerun_listview,
 					null);
 			holder = new ViewHolder();
 			holder.ivLeRunBackground = (ImageView) convertView
