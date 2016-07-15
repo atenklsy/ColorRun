@@ -18,7 +18,9 @@ import com.mengshitech.colorrun.fragment.lerun.lerunDetailFragment;
 import com.mengshitech.colorrun.utils.Utility;
 
 import java.util.List;
-
+/**
+ * atenklsy
+ */
 public class LeRunListViewAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
     List<LeRunEntity> mLeRunList;
     ListView mListView;

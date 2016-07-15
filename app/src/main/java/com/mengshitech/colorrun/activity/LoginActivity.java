@@ -16,7 +16,9 @@ import android.widget.Toast;
 import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
 
-
+/**
+ * atenklsy
+ */
 public class LoginActivity extends Activity implements OnClickListener {
     EditText etUserId, etUserPwd;
     Button btnLogin, btnRegister;

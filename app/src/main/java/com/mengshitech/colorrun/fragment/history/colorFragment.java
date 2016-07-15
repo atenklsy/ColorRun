@@ -15,7 +15,9 @@ import com.mengshitech.colorrun.fragment.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * atenklsy
+ */
 @SuppressLint("ValidFragment")
 public class colorFragment extends BaseFragment {
     ListView lvColorFragment;
