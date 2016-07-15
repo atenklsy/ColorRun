@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.bean.LeRunEntity;
+import com.mengshitech.colorrun.fragment.lerun.IntoLerunEvent;
 import com.mengshitech.colorrun.fragment.lerun.lerunDetailFragment;
 import com.mengshitech.colorrun.utils.Utility;
 
@@ -81,13 +82,15 @@ public class LeRunListViewAdapter extends BaseAdapter implements AdapterView.OnI
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, final int clickPosition, long id) {
-        lerunDetailFragment mLeRunFragment = new lerunDetailFragment();
+//        lerunDetailFragment mLeRunFragment = new lerunDetailFragment();
         LeRunEntity mclickLeRunEntity = getItem(clickPosition);
         Bundle bundle = new Bundle();
         bundle.putSerializable("mclickLeRunEntity", mclickLeRunEntity);
         bundle.putInt("clickPosition",clickPosition);
-        mLeRunFragment.setArguments(bundle);
-        Utility.replace2DetailFragment(mFragmentManager, mLeRunFragment);
+//        mLeRunFragment.setArguments(bundle);
+        IntoLerunEvent mIntoLerunEvent = new IntoLerunEvent();
+        mIntoLerunEvent.setArguments(bundle);
+        Utility.replace2DetailFragment(mFragmentManager, mIntoLerunEvent);
 
     }
 
