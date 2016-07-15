@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import java.util.List;
-
+/**
+ * atenklsy
+ */
 public class LeRunVpAdapter extends PagerAdapter {
 	private List<ImageView> mImgList;
 	private ViewPager mViewPager;

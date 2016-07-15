@@ -34,7 +34,6 @@ public class lerunFragment extends Fragment implements OnClickListener {
     // 广告首页ViewPager
     List<ImageView> imgList;
     // 广告图片
-
     TextView tvleRunCity, tvLeRunActivity, tvLeRunTheme, tvLeRunSignUp, tvLeRunFootPrint;
     // 城市选择按钮
     MyListView lvLerun;
@@ -45,7 +44,7 @@ public class lerunFragment extends Fragment implements OnClickListener {
     Boolean AutoRunning = true;
     FragmentManager fm;
     // 页面布局
-    private Activity mActivity;
+    Activity mActivity;
     // 广告栏是否自动滑动
 
     @Override

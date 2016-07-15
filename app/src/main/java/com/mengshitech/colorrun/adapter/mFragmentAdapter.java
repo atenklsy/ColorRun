@@ -7,7 +7,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.mengshitech.colorrun.fragment.BaseFragment;
 
 import java.util.List;
-
+/**
+ * atenklsy
+ */
 public class mFragmentAdapter extends FragmentPagerAdapter {
     List<BaseFragment> fragmentList;
     List<String> mTabsNameList;

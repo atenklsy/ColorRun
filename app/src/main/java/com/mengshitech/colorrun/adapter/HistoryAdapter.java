@@ -17,7 +17,9 @@ import com.mengshitech.colorrun.bean.HistoryEntity;
 import com.mengshitech.colorrun.fragment.history.mHistoryDetailFragment;
 
 import java.util.List;
-
+/**
+ * atenklsy
+ */
 public class HistoryAdapter extends BaseAdapter {
 	private Activity mActivity;
 	List<HistoryEntity> mHistotyList;

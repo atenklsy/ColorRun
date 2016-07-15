@@ -12,7 +12,9 @@ import android.view.Window;
 import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
 
-
+/**
+ * atenklsy
+ */
 public class SplashActivity extends Activity {
 	/**
 	 * 3秒闪屏页，用来判断网络、初始化数据、确认用户名是否登录等

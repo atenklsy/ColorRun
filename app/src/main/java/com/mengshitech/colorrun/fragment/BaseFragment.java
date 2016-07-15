@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mengshitech.colorrun.MainActivity;
-
+/**
+ * atenklsy
+ */
 public abstract class BaseFragment extends Fragment {
     public static Activity mActivity;
 

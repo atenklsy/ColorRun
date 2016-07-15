@@ -1,7 +1,9 @@
 package com.mengshitech.colorrun.bean;
 
 import java.io.Serializable;
-
+/**
+ * atenklsy
+ */
 public class LeRunEntity implements Serializable {
 
     private int LeRunBackgroundId;
