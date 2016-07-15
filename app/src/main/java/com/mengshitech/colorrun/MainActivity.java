@@ -31,7 +31,6 @@ import com.mengshitech.colorrun.view.NoScrollViewPager;
 @SuppressLint("NewApi")
 public class MainActivity extends FragmentActivity implements OnClickListener {
     public static RadioGroup rgMainBottom;
-    public static View contentView;
     RadioButton rbMe, rbHistory, rbRun, rbShow;
     NoScrollViewPager mViewPager;
     // List<View> pageList;
