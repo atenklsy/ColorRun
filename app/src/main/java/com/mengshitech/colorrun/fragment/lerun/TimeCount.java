@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.widget.DigitalClock;
 
 /**
- * Created by Administrator on 2016/7/15.
+ * Created by kanghuicong on 2016/7/15.
  */
 
 public class TimeCount extends DigitalClock {
