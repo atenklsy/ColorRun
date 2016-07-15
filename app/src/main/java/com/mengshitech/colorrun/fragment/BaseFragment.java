@@ -16,10 +16,16 @@ public abstract class BaseFragment extends Fragment {
         mActivity = getActivity();
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mActivity = getActivity();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         return initView();
 
     }
