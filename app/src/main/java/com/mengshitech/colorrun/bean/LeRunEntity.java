@@ -4,75 +4,45 @@ import java.io.Serializable;
 
 public class LeRunEntity implements Serializable {
 
-	private int LeRunBackgroundId;
-	// 背景图片
-	private String LeRunCity;
-	// 活动城市
-	private String LeRunTitle;
-	// 活动主题
-	private String LeRunStatus;
-	// 活动状态
-	private String LeRunLocation;
-	// 活动时间
-	private String LeRunTime;
-	// 活动时间
-	private String LeRunOther;
+    private int LeRunBackgroundId;
+    // 背景图片
+    private String LeRunName;
+    // 活动主题
+    private String LeRunLocation;
+    // 活动地点
+    private String LeRunTime;
+    // 活动时间
 
-	// 活动备注
-	public int getLeRunBackgroundId() {
-		return LeRunBackgroundId;
-	}
 
-	public void setLeRunBackgroundId(int leRunBackgroundId) {
-		LeRunBackgroundId = leRunBackgroundId;
-	}
+    public int getLeRunBackgroundId() {
+        return LeRunBackgroundId;
+    }
 
-	public String getLeRunCity() {
-		return LeRunCity;
-	}
+    public void setLeRunBackgroundId(int leRunBackgroundId) {
+        LeRunBackgroundId = leRunBackgroundId;
+    }
 
-	public void setLeRunCity(String leRunCity) {
-		LeRunCity = leRunCity;
-	}
+    public String getLeRunName() {
+        return LeRunName;
+    }
 
-	public String getLeRunTitle() {
-		return LeRunTitle;
-	}
+    public void setLeRunName(String leRunName) {
+        LeRunName = leRunName;
+    }
 
-	public void setLeRunTitle(String leRunTitle) {
-		LeRunTitle = leRunTitle;
-	}
+    public String getLeRunLocation() {
+        return LeRunLocation;
+    }
 
-	public String getLeRunStatus() {
-		return LeRunStatus;
-	}
+    public void setLeRunLocation(String leRunLocation) {
+        LeRunLocation = leRunLocation;
+    }
 
-	public void setLeRunStatus(String leRunStatus) {
-		LeRunStatus = leRunStatus;
-	}
+    public String getLeRunTime() {
+        return LeRunTime;
+    }
 
-	public String getLeRunLocation() {
-		return LeRunLocation;
-	}
-
-	public void setLeRunLocation(String leRunLocation) {
-		LeRunLocation = leRunLocation;
-	}
-
-	public String getLeRunTime() {
-		return LeRunTime;
-	}
-
-	public void setLeRunTime(String leRunTime) {
-		LeRunTime = leRunTime;
-	}
-
-	public String getLeRunOther() {
-		return LeRunOther;
-	}
-
-	public void setLeRunOther(String leRunOther) {
-		LeRunOther = leRunOther;
-	}
-
+    public void setLeRunTime(String leRunTime) {
+        LeRunTime = leRunTime;
+    }
 }
