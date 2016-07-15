@@ -6,8 +6,8 @@ import java.util.List;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.adapter.LeRunListViewAdapter;
 import com.mengshitech.colorrun.adapter.LeRunVpAdapter;
@@ -42,7 +43,6 @@ public class lerunFragment extends Fragment implements OnClickListener {
     Boolean AutoRunning = true;
     // 页面布局
     private Activity mActivity;
-
     // 广告栏是否自动滑动
 
     @Override
@@ -125,7 +125,6 @@ public class lerunFragment extends Fragment implements OnClickListener {
         img3.setScaleType(ScaleType.FIT_XY);
         img3.setBackgroundResource(R.mipmap.lerun_ad_c);
         imgList.add(img3);
-
     }
 
     @Override
