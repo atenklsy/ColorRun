@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.fragment.BaseFragment;
 
-
+/**
+ * atenklsy
+ */
 public class AboutUsFragment extends BaseFragment {
     View mDeatilView;
 

@@ -16,7 +16,9 @@ import com.mengshitech.colorrun.fragment.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * atenklsy
+ */
 public class histroyFragment extends Fragment {
     // 初始化布局的能力不够
     View histroyView;

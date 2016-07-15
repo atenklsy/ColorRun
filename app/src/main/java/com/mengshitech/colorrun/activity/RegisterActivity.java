@@ -10,7 +10,9 @@ import android.widget.EditText;
 
 import com.mengshitech.colorrun.R;
 
-
+/**
+ * atenklsy
+ */
 public class RegisterActivity extends Activity implements OnClickListener {
 	EditText etPhone, etRegPwd1, etRegPwd2, etVerificCode;
 	Button btnVerificCode, btnRegister;

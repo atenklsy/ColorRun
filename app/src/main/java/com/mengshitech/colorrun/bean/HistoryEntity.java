@@ -1,7 +1,9 @@
 package com.mengshitech.colorrun.bean;
 
 import java.io.Serializable;
-
+/**
+ * atenklsy
+ */
 public class HistoryEntity implements Serializable {
 	private int Imageid;
 	private String ActivityTitle;

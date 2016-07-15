@@ -5,7 +5,9 @@ import android.view.View;
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.fragment.BaseFragment;
 
-
+/**
+ * atenklsy
+ */
 public class mHistoryDetailFragment extends BaseFragment {
 	View mDeatilFragmentView;
 

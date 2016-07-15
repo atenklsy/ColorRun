@@ -13,7 +13,9 @@ import com.mengshitech.colorrun.fragment.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * atenklsy
+ */
 @SuppressLint("ValidFragment")
 public class popFragment extends BaseFragment {
     List<HistoryEntity> mHistoryList;

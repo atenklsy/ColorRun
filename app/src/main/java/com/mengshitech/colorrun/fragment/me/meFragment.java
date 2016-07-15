@@ -15,7 +15,9 @@ import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.utils.Utility;
 
-
+/**
+ * atenklsy
+ */
 public class meFragment extends Fragment implements OnClickListener {
     View meView;
     RelativeLayout rlUserHead;

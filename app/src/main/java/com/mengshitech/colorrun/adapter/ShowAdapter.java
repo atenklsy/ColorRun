@@ -17,7 +17,9 @@ import com.mengshitech.colorrun.fragment.show.showDetailFragment;
 import com.mengshitech.colorrun.utils.Utility;
 
 import java.util.List;
-
+/**
+ * atenklsy
+ */
 public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
     FragmentManager fm;
     ShowEntity mShowEntity;

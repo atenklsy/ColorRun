@@ -12,7 +12,9 @@ import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.fragment.BaseFragment;
 
-
+/**
+ * atenklsy
+ */
 public class myDetailFragment extends BaseFragment {
     View mDeatilView;
 

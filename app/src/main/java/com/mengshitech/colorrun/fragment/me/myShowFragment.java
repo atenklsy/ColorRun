@@ -11,7 +11,9 @@ import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.fragment.BaseFragment;
 
-
+/**
+ * atenklsy
+ */
 public class myShowFragment extends BaseFragment {
     View mDeatilView;
 
