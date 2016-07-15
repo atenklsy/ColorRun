@@ -21,12 +21,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
+import com.mengshitech.colorrun.fragment.BaseFragment;
 
 /**
- * Created by Administrator on 2016/7/15.
+ * Created by kanghuicong on 2016/7/15.
  */
 
-public class IntoLerunEvent extends Fragment implements OnClickListener {
+public class IntoLerunEvent extends BaseFragment implements OnClickListener {
     View into_lerun_view;
     TimeCount countdown;
     ImageView poster, map, title_back;
@@ -34,21 +35,18 @@ public class IntoLerunEvent extends Fragment implements OnClickListener {
             number, tx_entry;
     LinearLayout bt_entry;
 
-    public void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);
-    }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    @Override
+    public View initView() {
+        into_lerun_view = View.inflate(getActivity(), R.layout.lerun_into, null);
         find();
         click();// 点击事件
         entry_type();// 查看报名的状态
-        number_type();
+        number_type();// 查看人数状态
         time();// 倒计时
         return into_lerun_view;
     }
 
+    // 人数状态
     private void number_type() {
         // TODO Auto-generated method stub
         if (Integer.valueOf(number.getText().toString()) == 0) {
@@ -77,6 +75,7 @@ public class IntoLerunEvent extends Fragment implements OnClickListener {
     // 倒计时
     private void time() {
         // TODO Auto-generated method stub
+        //获取活动结束时间time
         String time = "2016年7月20日11时00分00秒";
 
         String time_finish = getTime(time);
@@ -114,14 +113,14 @@ public class IntoLerunEvent extends Fragment implements OnClickListener {
 
     private void click() {
         // TODO Auto-generated method stub
-        bt_entry.setOnClickListener(this);
-        title_back.setOnClickListener(this);
-        map.setOnClickListener(this);
+        bt_entry.setOnClickListener(this);//报名按钮
+        title_back.setOnClickListener(this);//返回上一页面
+        map.setOnClickListener(this);//点击地图放大
     }
 
     private void find() {
         // TODO Auto-generated method stub
-        into_lerun_view = View.inflate(getActivity(), R.layout.lerun_into, null);
+
         title_bar = (TextView) into_lerun_view.findViewById(R.id.title_barr);// 标题
         title_bar.setText("活动详情");
         title_back = (ImageView) into_lerun_view.findViewById(R.id.title_back);// 返回
@@ -149,6 +148,8 @@ public class IntoLerunEvent extends Fragment implements OnClickListener {
                 number.setText(Integer.valueOf(number.getText().toString()) - 1
                         + "");
 
+
+                //先用SharedPreferences存储报名状态，后面改成从服务器读取状态
                 SharedPreferences mySharedPreferences = getActivity()
                         .getSharedPreferences("entry_type", Activity.MODE_PRIVATE);
                 SharedPreferences.Editor editor = mySharedPreferences.edit();
@@ -160,16 +161,17 @@ public class IntoLerunEvent extends Fragment implements OnClickListener {
                 entry_type();
                 break;
             case R.id.title_back:
+                //返回上一页面
                 getFragmentManager().popBackStack();
                 break;
             case R.id.into_lerun_map:
+                //点击地图放大
                 toFragment(new ShowMap());
-//                Intent intent = new Intent(getActivity(), ShowMap.class);
-//                startActivity(intent);
             default:
                 break;
         }
     }
+    //fragment跳转到另一个fragment
     private void toFragment(Fragment fragment) {
         FragmentManager fmManager = getFragmentManager();
         fmManager.beginTransaction().replace(R.id.flMain, fragment)
@@ -212,10 +214,4 @@ public class IntoLerunEvent extends Fragment implements OnClickListener {
     // }
     // }
     // };
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        MainActivity.rgMainBottom.setVisibility(View.VISIBLE);
-    }
 }

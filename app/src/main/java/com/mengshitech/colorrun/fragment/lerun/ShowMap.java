@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import com.mengshitech.colorrun.R;
 
 /**
- * Created by Administrator on 2016/7/15.
+ * Created by kanghuicong on 2016/7/15.
  */
 public class ShowMap extends Fragment{
     View showmap_view;

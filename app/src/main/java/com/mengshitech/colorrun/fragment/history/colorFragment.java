@@ -28,7 +28,6 @@ public class colorFragment extends BaseFragment {
         initView();
     }
 
-
     @Override
     public View initView() {
         initEntity();

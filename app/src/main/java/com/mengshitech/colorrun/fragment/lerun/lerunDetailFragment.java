@@ -25,7 +25,6 @@ public class lerunDetailFragment extends BaseFragment {
         return lerunDetailView;
     }
 
-
     private void findById() {
         tvLeRunDetailContent = (TextView) lerunDetailView.findViewById(R.id.tvLeRunDetailContent);
     }
