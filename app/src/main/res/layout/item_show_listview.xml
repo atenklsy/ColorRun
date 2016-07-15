@@ -9,6 +9,7 @@
         android:id="@+id/ivShow_UserHead"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginRight="5dp"
         android:src="@mipmap/image_head" />
 
     <TextView

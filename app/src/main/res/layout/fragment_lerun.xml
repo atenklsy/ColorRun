@@ -36,100 +36,92 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/vpLeRunAd"
             android:layout_width="match_parent"
-            android:layout_height="170dp" />
+            android:layout_height="190dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp">
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
 
-            <LinearLayout
-                android:id="@+id/llActivity"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+            <TextView
+                android:id="@+id/tvLeRunActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal">
+                android:drawableTop="@mipmap/temp_icon"
+                android:gravity="center_horizontal"
+                android:text="活动" />
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/tv_activity_selector"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:src="@mipmap/main_activity_no" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="活动"
-                    android:textColor="@drawable/btn_tab_text_selector"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="0.4dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:background="#cdcdcd" />
-
-            <LinearLayout
-                android:id="@+id/llNews"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+            <TextView
+                android:id="@+id/tvLeRunTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal">
+                android:drawableTop="@mipmap/temp_icon"
+                android:gravity="center_horizontal"
+                android:text="主题" />
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/tv_news_selector"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:src="@mipmap/main_news_no" />
+            <TextView
+                android:id="@+id/tvLeRunFootPrint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/temp_icon"
+                android:gravity="center_horizontal"
+                android:text="足迹" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="资讯"
-                    android:textColor="@drawable/btn_tab_text_selector"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="0.4dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:background="#cdcdcd" />
-
-            <LinearLayout
-                android:id="@+id/llCode"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=" 1"
-                android:gravity="center_vertical|center_horizontal">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/tv_code_selector"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:src="@mipmap/main_code_no" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="二维码"
-                    android:textColor="@drawable/btn_tab_text_selector"
-                    android:textSize="18sp" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tvLeRunSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/temp_icon"
+                android:gravity="center_horizontal"
+                android:text="签到" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/ViewLine" />
+
+        <TextView
+            android:id="@+id/tvHotActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="热门活动>>" />
+
+        <GridView
+            android:id="@+id/gvHotActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/ViewLine" />
+
+        <TextView
+            android:id="@+id/tvHotVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="热门视频>>" />
+
+        <ImageView
+            android:id="@+id/ivHotView"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/hotvideo" />
+
 
         <com.mengshitech.colorrun.view.MyListView
             android:id="@+id/lvLerun"

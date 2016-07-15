@@ -90,9 +90,9 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
         /**
          * 改变drawable的大小
          */
-        Utility.changeDrawable(holder.tvShow_Heart, R.mipmap.show_heart, 0);
-        Utility.changeDrawable(holder.tvShow_Comment, R.mipmap.show_comment, 0);
-        Utility.changeDrawable(holder.tvShow_Share, R.mipmap.show_share, 0);
+        Utility.changeDrawableDirection(holder.tvShow_Heart, R.mipmap.show_heart, 0);
+        Utility.changeDrawableDirection(holder.tvShow_Comment, R.mipmap.show_comment, 0);
+        Utility.changeDrawableDirection(holder.tvShow_Share, R.mipmap.show_share, 0);
         mListView.setOnItemClickListener(this);
         return convertView;
     }

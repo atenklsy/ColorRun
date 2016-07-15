@@ -1,76 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="240dp"
-    android:orientation="vertical" >
+    android:layout_height="95dp"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/ivLeRunBackground"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:alpha="0.7"
+        android:layout_width="150dp"
+        android:layout_height="95dp"
+        android:layout_marginRight="10dp"
         android:scaleType="fitXY"
         android:src="@mipmap/jxnu" />
 
     <TextView
-        android:id="@+id/tvLeRunCity"
+        android:id="@+id/tvLeRunName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tvLeRunStatus"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="5dp"
-        android:text="上海"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/tvLeRunStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tvLeRunLocation"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="3dp"
-        android:text="报名即将开始"
-        android:textColor="@color/white" />
-
-    <TextView
-        android:id="@+id/tvLeRunLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="3dp"
-        android:text="上海浦东外高桥森兰绿地"
-        android:textColor="@color/yellow"
+        android:layout_toRightOf="@+id/ivLeRunBackground"
+        android:text="卡乐泡泡跑"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvLeRunTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvLeRunLocation"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="5dp"
-        android:text="报名时间：7月11日-7月18日"
-        android:textColor="@color/white" />
+        android:layout_toRightOf="@+id/ivLeRunBackground"
+        android:text="07月11日"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvLeRunOther"
+        android:id="@+id/tvLeRunLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvLeRunTime"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:text="成为ColorRun彩色跑VIP，将能提前收到我们的邮件，拥有专属的VIP报名通道，抢先获得报名机会哦！"
-        android:textColor="@color/white"
-        android:textSize="12sp" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/ivLeRunBackground"
+        android:text="上海浦东外高桥森兰绿地"
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/ivLeRunBackground"
-        android:background="#af12dd"
-        android:text="立即报名"
-        android:textColor="@color/white" />
 
 </RelativeLayout>
