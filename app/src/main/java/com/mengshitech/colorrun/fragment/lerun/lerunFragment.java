@@ -8,16 +8,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -85,6 +82,8 @@ public class lerunFragment extends Fragment implements OnClickListener {
         // 初始化ViewPager的图片
         initLeRunList();
         // 初始化listView数据
+        fm = getFragmentManager();
+        //初始化fm给ListView、GridView用
         tvLeRunActivity.setOnClickListener(this);
         Utility.changeDrawableSize(tvLeRunActivity, R.mipmap.temp_icon, 80, 80);
         tvLeRunTheme.setOnClickListener(this);
