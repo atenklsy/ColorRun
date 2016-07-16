@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -32,9 +33,6 @@ import com.mengshitech.colorrun.view.NoScrollViewPager;
 public class MainActivity extends FragmentActivity implements OnClickListener {
     public static RadioGroup rgMainBottom;
     RadioButton rbMe, rbHistory, rbRun, rbShow;
-    NoScrollViewPager mViewPager;
-    // List<View> pageList;
-    List<Fragment> fragmentList;
     FragmentManager fm;
 
     @Override
@@ -92,4 +90,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //监听返回按钮
+    }
 }
