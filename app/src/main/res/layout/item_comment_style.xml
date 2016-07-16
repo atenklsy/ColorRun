@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ivComment_UserHead"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/image_head" />
+
+    <TextView
+        android:id="@+id/tvComment_UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ivComment_UserHead"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="康惠聪"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tvComment_SendTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tvShow_UserName"
+        android:layout_toRightOf="@+id/ivComment_UserHead"
+        android:text="2016-07-15 08:23:22" />
+
+    <TextView
+        android:id="@+id/tvComment_Content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvComment_SendTime"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/ivComment_UserHead"
+        android:text="能坚持下来就是棒棒哒！"
+        android:textColor="@color/black" />
+
+
+</RelativeLayout>

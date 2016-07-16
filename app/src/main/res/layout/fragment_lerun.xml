@@ -90,30 +90,27 @@
                     android:text="签到" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/ViewBackground" />
+
 
             <TextView
                 android:id="@+id/tvHotActivity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
+                android:layout_marginTop="5dp"
                 android:padding="3dp"
                 android:text="热门活动>>" />
 
             <GridView
                 android:id="@+id/gvHotActivity"
                 android:layout_width="match_parent"
+                android:background="@color/white"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
                 android:numColumns="2" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/ViewBackground" />
+
 
             <TextView
                 android:id="@+id/tvHotVideo"

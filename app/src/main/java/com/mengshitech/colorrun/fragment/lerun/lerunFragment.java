@@ -108,7 +108,7 @@ public class lerunFragment extends Fragment implements OnClickListener {
         // 模拟初始化活动ListView的数据源
         mLeRunList = new ArrayList<LeRunEntity>();
         LeRunEntity mLeRunEntity1 = new LeRunEntity();
-        mLeRunEntity1.setLeRunBackgroundId(R.mipmap.jxnu);
+        mLeRunEntity1.setLeRunBackgroundId(R.mipmap.poprun);
         mLeRunEntity1.setLeRunLocation("上海浦东外高桥森兰绿地");
         mLeRunEntity1.setLeRunName("泡泡跑");
         mLeRunEntity1.setLeRunTime("08月19日");
@@ -120,7 +120,7 @@ public class lerunFragment extends Fragment implements OnClickListener {
         mLeRunEntity2.setLeRunTime("09月25日");
         mLeRunList.add(mLeRunEntity2);
         LeRunEntity mLeRunEntity3 = new LeRunEntity();
-        mLeRunEntity3.setLeRunBackgroundId(R.mipmap.jxnu);
+        mLeRunEntity3.setLeRunBackgroundId(R.mipmap.colorrun);
         mLeRunEntity3.setLeRunLocation("广州海珠广州塔");
         mLeRunEntity3.setLeRunName("卡乐跑");
         mLeRunEntity3.setLeRunTime("11月12日");
@@ -172,4 +172,6 @@ public class lerunFragment extends Fragment implements OnClickListener {
                 break;
         }
     }
+
+
 }
