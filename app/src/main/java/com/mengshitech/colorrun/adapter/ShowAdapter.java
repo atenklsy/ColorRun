@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.bean.ShowEntity;
@@ -17,10 +18,11 @@ import com.mengshitech.colorrun.fragment.show.showDetailFragment;
 import com.mengshitech.colorrun.utils.Utility;
 
 import java.util.List;
+
 /**
  * atenklsy
  */
-public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
+public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickListener, View.OnClickListener {
     FragmentManager fm;
     ShowEntity mShowEntity;
     private List<ShowEntity> mShowList;
@@ -96,6 +98,10 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
         Utility.changeDrawableDirection(holder.tvShow_Comment, R.mipmap.show_comment, 0);
         Utility.changeDrawableDirection(holder.tvShow_Share, R.mipmap.show_share, 0);
         mListView.setOnItemClickListener(this);
+//        holder.tvShow_Share.setTag(position);
+        holder.tvShow_Share.setOnClickListener(this);
+        holder.tvShow_Comment.setOnClickListener(this);
+        holder.tvShow_Heart.setOnClickListener(this);
         return convertView;
     }
 
@@ -106,6 +112,23 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
         args.putSerializable("mShowEntity", mShowEntity);
         mShowDetailFragment.setArguments(args);
         Utility.replace2DetailFragment(fm, mShowDetailFragment);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tvShow_Share:
+                Toast.makeText(mActivity, "share", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tvShow_Comment:
+                Toast.makeText(mActivity, "comment", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tvShow_Heart:
+                Toast.makeText(mActivity, "heart", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 
     class ViewHolder {
