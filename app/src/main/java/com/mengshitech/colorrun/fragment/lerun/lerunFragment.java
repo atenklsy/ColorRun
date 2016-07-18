@@ -151,6 +151,7 @@ public class lerunFragment extends Fragment implements OnClickListener {
             case R.id.tvLeRunActivity:
                 // 活动按钮
                 Toast.makeText(mActivity, "活动", Toast.LENGTH_SHORT).show();
+                Utility.replace2DetailFragment(fm,new LerunEventListView());
                 break;
             case R.id.tvLeRunTheme:
                 //主题按钮
