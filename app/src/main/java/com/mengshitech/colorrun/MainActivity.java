@@ -4,6 +4,8 @@ import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.mengshitech.colorrun.fragment.history.histroyFragment;
 import com.mengshitech.colorrun.fragment.lerun.lerunFragment;
@@ -32,8 +35,18 @@ import com.mengshitech.colorrun.view.NoScrollViewPager;
 @SuppressLint("NewApi")
 public class MainActivity extends FragmentActivity implements OnClickListener {
     public static RadioGroup rgMainBottom;
+    // 定义一个变量，来标识是否退出
+    private static boolean isExit = false;
     RadioButton rbMe, rbHistory, rbRun, rbShow;
     FragmentManager fm;
+    private Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,5 +107,19 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     public void onBackPressed() {
         super.onBackPressed();
         //监听返回按钮
+        exit();
+    }
+
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+            Toast.makeText(getApplicationContext(), "再按一次退出程序",
+                    Toast.LENGTH_SHORT).show();
+            // 利用handler延迟发送更改状态信息
+            mHandler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            finish();
+            System.exit(0);
+        }
     }
 }

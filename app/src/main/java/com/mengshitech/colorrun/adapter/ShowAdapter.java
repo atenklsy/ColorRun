@@ -3,6 +3,7 @@ package com.mengshitech.colorrun.adapter;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -25,6 +26,7 @@ import java.util.List;
 public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickListener, View.OnClickListener {
     FragmentManager fm;
     ShowEntity mShowEntity;
+    ViewHolder holder;
     private List<ShowEntity> mShowList;
     private ListView mListView;
     private Activity mActivity;
@@ -57,7 +59,7 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
         mShowEntity = getItem(position);
         // 上面是该了getItem的方法，让她返回一个HistoryEntity类型的对象
         // HistoryEntity mHistoryEntity = mHistotyList.get(position);
-        ViewHolder holder = null;
+        holder = null;
         if (convertView == null) {
             convertView = View.inflate(mActivity,
                     R.layout.item_show_listview, null);
@@ -74,7 +76,6 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
                     .findViewById(R.id.tvSendTime);
             holder.tvShow_Heart = (TextView) convertView
                     .findViewById(R.id.tvShow_Heart);
-
             holder.tvShow_Comment = (TextView) convertView
                     .findViewById(R.id.tvShow_Comment);
             holder.tvShow_Share = (TextView) convertView
@@ -98,7 +99,6 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
         Utility.changeDrawableDirection(holder.tvShow_Comment, R.mipmap.show_comment, 0);
         Utility.changeDrawableDirection(holder.tvShow_Share, R.mipmap.show_share, 0);
         mListView.setOnItemClickListener(this);
-//        holder.tvShow_Share.setTag(position);
         holder.tvShow_Share.setOnClickListener(this);
         holder.tvShow_Comment.setOnClickListener(this);
         holder.tvShow_Heart.setOnClickListener(this);
@@ -119,6 +119,10 @@ public class ShowAdapter extends BaseAdapter implements AdapterView.OnItemClickL
         switch (v.getId()) {
             case R.id.tvShow_Share:
                 Toast.makeText(mActivity, "share", Toast.LENGTH_SHORT).show();
+//                int HeartCount = Integer.valueOf(mShowEntity.getTvShow_Heart());
+//                HeartCount++;
+//                holder.tvShow_Share.setText(HeartCount);
+                Log.d("atenklsy", "HeartCount数量是：" + mShowEntity.getTvShow_Heart());
                 break;
             case R.id.tvShow_Comment:
                 Toast.makeText(mActivity, "comment", Toast.LENGTH_SHORT).show();

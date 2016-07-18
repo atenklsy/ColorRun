@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mengshitech.colorrun.R;
@@ -32,6 +33,7 @@ public class showDetailFragment extends BaseFragment {
     List<CommentEntity> mCommentList;//评论列表
     EditText etSendComment;//评论的编辑
     ShowEntity mShowEntity;//show的实体内容
+    RelativeLayout rlShowDetail;
 
     @Override
     public View initView() {
@@ -51,6 +53,7 @@ public class showDetailFragment extends BaseFragment {
         lvShowDetail_Comment = (MyListView) showDetailView.findViewById(R.id.lvShowDetail_Comment);
         etSendComment = (EditText) showDetailView.findViewById(R.id.etSendComment);//
         ivSendComment = (TextView) showDetailView.findViewById(R.id.ivSendComment);
+        rlShowDetail = (RelativeLayout) showDetailView.findViewById(R.id.rlShowDetail);
     }
 
     private void initDatas() {
@@ -64,7 +67,9 @@ public class showDetailFragment extends BaseFragment {
         tvWordContent.setText(mShowEntity.getTvWordContent());
         lvShowDetail_Comment.setAdapter(new ShowDetailCommentAdpter(mActivity, mCommentList, lvShowDetail_Comment));
         Utility.changeDrawableDirection(ivSendComment, R.mipmap.comment_send, 3);
+        Utility.back2Father(rlShowDetail, mActivity);
     }
+
 
     /**
      * 模拟评论数据，暂时用
