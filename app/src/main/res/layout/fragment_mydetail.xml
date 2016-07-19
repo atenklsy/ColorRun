@@ -2,11 +2,222 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#efefef">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <include layout="@layout/main_back"></include>
+
+    <LinearLayout
+        android:id="@+id/ll_me_head"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="头像"
+            android:textSize="18dp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/iv_me_head"
+            android:background="@mipmap/jxnu"/>
+    </LinearLayout>
+
+    <include layout="@layout/mian_splitter"/>
+
+    <LinearLayout
+        android:id="@+id/ll_me_nickname"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="昵称"
+            android:textSize="18dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_me_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="kk"
+            android:textSize="18dp"
+            android:textColor="@color/ViewLine"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <include layout="@layout/mian_splitter"/>
+
+    <LinearLayout
+        android:id="@+id/ll_me_phone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="电话"
+            android:textSize="18dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_me_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="1234567"
+            android:textSize="18dp"
+            android:textColor="@color/ViewLine"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <include layout="@layout/mian_splitter"/>
+
+    <LinearLayout
+        android:id="@+id/ll_me_address"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="我的地址"
+            android:textSize="18dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_me_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/ViewLine"
+            android:textSize="18dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_me_sex"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="性别"
+            android:textSize="18dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_me_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text=""
+            android:textSize="18dp"
+            android:textColor="@color/ViewLine"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <include layout="@layout/mian_splitter"/>
+
+    <LinearLayout
+        android:id="@+id/ll_me_land"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="地区"
+            android:textSize="18dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_me_land"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="江西"
+            android:textSize="18dp"
+            android:textColor="@color/ViewLine"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <include layout="@layout/mian_splitter"/>
+
+    <LinearLayout
+        android:id="@+id/ll_me_autograph"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MYDETAIL" />
+        android:background="@color/white">
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="个性签名"
+                android:textSize="18dp"
+                android:layout_gravity="left|center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_me_autograph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:singleLine="true"
+                android:text="啦啦啦啦啦啦dssssssssssssssssssssssssssssss"
+                android:textSize="18dp"
+                android:textColor="@color/ViewLine"
+                android:layout_gravity="right|center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

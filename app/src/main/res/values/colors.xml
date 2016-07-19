@@ -11,6 +11,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="green">#33cc99</color>
+    <color name="darkgrey">#4F4F4F</color>
+    <color name="lightgrey">#E5E5E5</color>
     <color name="little_bule">#0099cc</color>
     <color name="purple">#ff0033</color>
 </resources>

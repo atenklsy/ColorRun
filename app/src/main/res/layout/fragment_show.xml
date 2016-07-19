@@ -16,6 +16,15 @@
             android:text="秀"
             android:textColor="@color/white"
             android:textSize="26sp" />
+
+        <ImageView
+            android:id="@+id/ivShow_CreateShow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/friendcircle" />
     </RelativeLayout>
 
     <ListView

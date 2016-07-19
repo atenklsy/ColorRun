@@ -23,14 +23,33 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/lerun_event_name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="乐跑" />
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/lerun_event_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="卡乐跑" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lerun_envent_state"
+                android:text="报名中"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/green"/>
+
+        </LinearLayout>
 
 
 
@@ -51,22 +70,13 @@
                 android:layout_height="wrap_content"
                 android:text="泡泡跑"
                 android:textColor="@color/purple"/>
-
         </LinearLayout>
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:id="@+id/lerun_envent_state"
-            android:text="报名中"
-            android:textColor="@color/green"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="left"
             android:text="奥体中心"
             android:id="@+id/lerun_event_address" />
 
