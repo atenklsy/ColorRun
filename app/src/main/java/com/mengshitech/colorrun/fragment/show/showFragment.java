@@ -8,19 +8,23 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.adapter.ShowAdapter;
 import com.mengshitech.colorrun.bean.ShowEntity;
+import com.mengshitech.colorrun.utils.Utility;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class showFragment extends Fragment {
+public class showFragment extends Fragment implements View.OnClickListener {
     View showView;
+    ImageView ivShow_CreateShow;
     ListView lvShowContent;
     List<ShowEntity> mShowList;
+    FragmentManager fm;
     private Activity mActivity;
 
     @Override
@@ -40,6 +44,7 @@ public class showFragment extends Fragment {
     private void findById() {
         initShow();
         lvShowContent = (ListView) showView.findViewById(R.id.lvShowContent);
+        ivShow_CreateShow = (ImageView) showView.findViewById(R.id.ivShow_CreateShow);
 
     }
 
@@ -48,8 +53,9 @@ public class showFragment extends Fragment {
      * 加载数据
      */
     private void initDatas() {
-        FragmentManager fm = getActivity().getSupportFragmentManager();
+        fm = getActivity().getSupportFragmentManager();
         lvShowContent.setAdapter(new ShowAdapter(mActivity, mShowList, lvShowContent, fm));
+        ivShow_CreateShow.setOnClickListener(this);
     }
 
     /**
@@ -87,5 +93,20 @@ public class showFragment extends Fragment {
         mShowEntity3.setTvShow_Comment("113");
         mShowList.add(mShowEntity3);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ivShow_CreateShow:
+                CreateShowFragment mCreateShowFragment = new CreateShowFragment();
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("mShowEntity",mShowEntity);
+//                mCreateShowFragment.setArguments(bundle);
+                Utility.replace2DetailFragment(fm, mCreateShowFragment);
+                break;
+            default:
+                break;
+        }
     }
 }

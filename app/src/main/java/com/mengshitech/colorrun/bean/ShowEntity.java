@@ -1,6 +1,7 @@
 package com.mengshitech.colorrun.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by atenklsy on 2016/7/14 10:49.
@@ -10,11 +11,20 @@ public class ShowEntity implements Serializable {
     private int ivUserHead;
     private String tvShow_UserName;
     private int ivShowPic;
+    private List<Integer> ivImageList;
     private String tvWordContent;
     private String tvSendTime;
     private String tvShow_Heart;
     private String tvShow_Comment;
     private String tvShow_Share;
+
+    public List<Integer> getIvImageList() {
+        return ivImageList;
+    }
+
+    public void setIvImageList(List<Integer> ivImageList) {
+        this.ivImageList = ivImageList;
+    }
 
     public int getIvUserHead() {
         return ivUserHead;

@@ -35,10 +35,9 @@ import com.mengshitech.colorrun.view.NoScrollViewPager;
 @SuppressLint("NewApi")
 public class MainActivity extends FragmentActivity implements OnClickListener {
     public static RadioGroup rgMainBottom;
-    // 定义一个变量，来标识是否退出
-    private static boolean isExit = false;
-    RadioButton rbMe, rbHistory, rbRun, rbShow;
-    FragmentManager fm;
+    private static boolean isExit = false;// 定义一个变量，来标识是否退出
+    private RadioButton rbMe, rbHistory, rbRun, rbShow;
+    private FragmentManager fm;
     private Handler mHandler = new Handler() {
 
         @Override
@@ -117,6 +116,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                     Toast.LENGTH_SHORT).show();
             // 利用handler延迟发送更改状态信息
             mHandler.sendEmptyMessageDelayed(0, 2000);
+            //如果2秒内没有退出，则变成false。重新按两次才能退出。
         } else {
             finish();
             System.exit(0);
