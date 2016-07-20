@@ -49,6 +49,7 @@ public class LeRunEventListviewAdapter extends BaseAdapter{
             holder.lerun_event_address=(TextView)view.findViewById(R.id.lerun_event_address);
             view.setTag(holder);
         }else {
+            view = convertView;
             holder = (Holder) view.getTag();
         }
         return view;
