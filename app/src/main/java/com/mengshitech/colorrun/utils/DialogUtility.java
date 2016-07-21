@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -23,20 +24,18 @@ import com.mengshitech.colorrun.fragment.BaseFragment;
  */
 public class DialogUtility {
 
-
     //修改电话号码
     public static void DialogPhone(final Context context, final TextView tv_phone){
         LayoutInflater inflater = LayoutInflater.from(context);
-        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_phone, null);
         final Dialog dialog = new AlertDialog.Builder(context).create();
 
-        addDialog(dialog,layout);
-
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_phone, null);
         final EditText et_inputnumber = (EditText)layout.findViewById(R.id.et_inputnumber);
         Button inputnumber_cancel = (Button)layout.findViewById(R.id.btn_inputnumber_cancel);
         Button inputnumner_ok = (Button)layout.findViewById(R.id.btn_inputnumner_ok);
         Button inputnumber_clear = (Button)layout.findViewById(R.id.btn_inputnumber_clear);
 
+        addDialog(dialog,layout);
         //取消退出对话框
         inputnumber_cancel.setOnClickListener(new View.OnClickListener()
         {
@@ -73,10 +72,11 @@ public class DialogUtility {
 
         LayoutInflater inflater = LayoutInflater.from(context);
         final Dialog dialog = new AlertDialog.Builder(context).create();
-        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_sex, null);
-        addDialog(dialog,layout);
 
+        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_sex, null);
         RadioGroup radioGroup = (RadioGroup)layout .findViewById(R.id.chosesex_radiogroup);
+
+        addDialog(dialog,layout);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
@@ -95,11 +95,13 @@ public class DialogUtility {
     public static void DialogNickname(final Context context, final TextView tv_nickname){
         LayoutInflater inflater = LayoutInflater.from(context);
         final Dialog dialog = new AlertDialog.Builder(context).create();
-        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_nickname, null);
-        addDialog(dialog,layout);
 
+        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_nickname, null);
         final EditText revise_nickname = (EditText)layout.findViewById(R.id.et_me_revise_nickname);
         Button bt_nickname_conservation = (Button)layout.findViewById(R.id.bt_me_nickname_conservation);
+
+        addDialog(dialog,layout);
+        revise_nickname.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
         bt_nickname_conservation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,11 +123,13 @@ public class DialogUtility {
     public static void DialogAutograph(final Context context, final TextView tv_autograph){
         LayoutInflater inflater = LayoutInflater.from(context);
         final Dialog dialog = new AlertDialog.Builder(context).create();
-        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_autograph, null);
-        addDialog(dialog,layout);
 
+        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_autograph, null);
         final EditText revise_autograph = (EditText)layout.findViewById(R.id.et_autograph);
         Button bt_autograph_conservation = (Button)layout.findViewById(R.id.bt_autograph_conservation);
+
+        addDialog(dialog,layout);
+        revise_autograph.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
 
         bt_autograph_conservation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,13 +150,15 @@ public class DialogUtility {
     public static void DialogPhysique(String type,final Context context,final TextView tv_physique){
         LayoutInflater inflater = LayoutInflater.from(context);
         final Dialog dialog = new AlertDialog.Builder(context).create();
-        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_physique, null);
-        addDialog(dialog,layout);
 
+        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_physique, null);
         TextView title = (TextView)layout.findViewById(R.id.tv_physique_title);
         final EditText et_physique = (EditText)layout.findViewById(R.id.et_physique);
         TextView tv_physique_bar = (TextView)layout.findViewById(R.id.tv_physique_bar);
         Button bt_conservation = (Button)layout.findViewById(R.id.bt_physique_conservation);
+
+        addDialog(dialog,layout);
+        et_physique.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
 
         switch (type){
             case ("height"):

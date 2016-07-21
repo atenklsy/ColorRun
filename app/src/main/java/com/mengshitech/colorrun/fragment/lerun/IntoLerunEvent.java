@@ -32,15 +32,15 @@ import com.mengshitech.colorrun.utils.Utility;
 public class IntoLerunEvent extends BaseFragment implements OnClickListener {
     View into_lerun_view;
     TimeCount countdown;
-    ImageView poster, map, title_back;
-    TextView title_bar, address, name, origin, time, process, rule, price,
+    ImageView poster, map;
+    TextView  address, name, origin, time, process, rule, price,
             number, tx_entry;
-    LinearLayout bt_entry;
+    LinearLayout ll_entry;
 
     @Override
     public View initView() {
         into_lerun_view = View.inflate(getActivity(), R.layout.lerun_into, null);
-        MainBackUtility.MainBack(into_lerun_view,"活动详情",getFragmentManager());
+        MainBackUtility.MainBack(into_lerun_view,"活动详情",getFragmentManager(),0);
 
         find();
         click();// 点击事件
@@ -55,7 +55,7 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
         // TODO Auto-generated method stub
         if (Integer.valueOf(number.getText().toString()) == 0) {
             tx_entry.setText("报名人数已满");
-            bt_entry.setEnabled(false);
+            ll_entry.setEnabled(false);
         }
     }
 
@@ -70,9 +70,9 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
 
         if (type == "success") {
             number.setText(num + "");
-            bt_entry.setBackgroundColor(Color.parseColor("#cccccc"));
+            ll_entry.setBackgroundColor(Color.parseColor("#cccccc"));
             tx_entry.setText("已报名");
-            bt_entry.setEnabled(false);
+            ll_entry.setEnabled(false);
         }
     }
 
@@ -93,7 +93,7 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
         Log.i("Time_finish", Time_finish + "");
 
         countdown.setEndTime(System.currentTimeMillis()
-                + (Time_finish - Time_now));
+                + (Time_finish - Time_now),ll_entry,tx_entry);
     }
 
     // 活动结束时间转成时间戳
@@ -117,7 +117,7 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
 
     private void click() {
         // TODO Auto-generated method stub
-        bt_entry.setOnClickListener(this);//报名按钮
+        ll_entry.setOnClickListener(this);//报名按钮
         map.setOnClickListener(this);//点击地图放大
     }
 
@@ -134,7 +134,7 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
         price = (TextView) into_lerun_view.findViewById(R.id.into_lerun_price);// 活动费用
         number = (TextView) into_lerun_view.findViewById(R.id.into_lerun_number);// 剩余名额
         countdown = (TimeCount) into_lerun_view.findViewById(R.id.into_lerun_countdown);// 剩余时间
-        bt_entry = (LinearLayout) into_lerun_view.findViewById(R.id.bt_into_lerun_entry);// 报名按钮
+        ll_entry = (LinearLayout) into_lerun_view.findViewById(R.id.bt_into_lerun_entry);// 报名按钮
         tx_entry = (TextView) into_lerun_view.findViewById(R.id.tx_into_lerun_entry);// 立即报名
     }
 
