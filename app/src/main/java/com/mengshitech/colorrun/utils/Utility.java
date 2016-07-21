@@ -2,6 +2,7 @@ package com.mengshitech.colorrun.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -186,5 +187,13 @@ public class Utility {
 
 
     }
+
+    public static void pickImage(Activity mActivity) {
+        Intent ablumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        ablumIntent.setType("image/*");
+        mActivity.startActivityForResult(ablumIntent, 1);
+
+    }
+
 
 }
