@@ -1,4 +1,4 @@
-package com.mengshitech.colorrun.fragment.me;
+package com.mengshitech.colorrun.bean;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by kanghuicong on 2016/7/20  14:08.
  * 515849594@qq.com
  */
-public class UserMolder implements Serializable {
+public class UserEntiy implements Serializable {
 
     private byte[] image;
 
@@ -19,8 +19,8 @@ public class UserMolder implements Serializable {
     private String phone;
     private String autograph;
 
-    public UserMolder(String userid,String nickname,String userpwd,String sex,String email,
-                      String address,String phone,String autograph,byte[] image){
+    public UserEntiy(String userid, String nickname, String userpwd, String sex, String email,
+                     String address, String phone, String autograph, byte[] image){
         this.address = address;
         this.autograph = autograph;
         this.email = email;
@@ -32,14 +32,20 @@ public class UserMolder implements Serializable {
         this.userpwd = userpwd;
     }
 
-    public void UserMolder(String nickname) {
+    public UserEntiy(String nickname) {
         this.nickname = nickname;
+    }
+
+    public UserEntiy() {
     }
 
     public String getNickname() {
         return nickname;
     }
 
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
     public String getPhone() {
         return phone;

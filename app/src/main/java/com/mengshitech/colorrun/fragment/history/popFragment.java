@@ -28,7 +28,6 @@ public class popFragment extends BaseFragment {
         initView();
     }
 
-
     @Override
     public View initView() {
         initEntity();
@@ -46,8 +45,7 @@ public class popFragment extends BaseFragment {
         mHistoryEntity1.setActivityTime("2016年7月11日14时");
         mHistoryEntity1.setActivityLoc("江西省奥体中心");
         mHistoryList.add(mHistoryEntity1);
-
-    }
+}
 
     private void findById() {
         lvPopFragment = (ListView) popView.findViewById(R.id.lvPopFragment);

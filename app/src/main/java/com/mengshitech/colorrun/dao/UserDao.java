@@ -1,8 +1,11 @@
-package com.mengshitech.colorrun.fragment.me;
+package com.mengshitech.colorrun.dao;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.mengshitech.colorrun.bean.UserEntiy;
+import com.mengshitech.colorrun.fragment.me.DatabaseHelper;
 
 /**
  * Created by kanghuicong on 2016/7/20  14:21.
@@ -19,7 +22,7 @@ public class UserDao {
     }
 
     // 插入
-    public void add(UserMolder user) {
+    public void add(UserEntiy user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL(
                 "insert into user(userid,nickname,userpwd,sex,phone,email,address,autograph) values(?,?,?,?,?,?,?,?)",
@@ -31,7 +34,7 @@ public class UserDao {
     }
 
     //更新昵称
-    public void update_nickname(UserMolder user) {
+    public void update_nickname(UserEntiy user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("update  user set nickname=? where userid=?",
                 new Object[] { user.getNickname(), user.getUserid() });
@@ -39,7 +42,7 @@ public class UserDao {
     }
 
     //更新性别
-    public void update_sex(UserMolder user) {
+    public void update_sex(UserEntiy user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("update  user set sex=? where userid=?",
                 new Object[] { user.getSex(), user.getUserid() });
@@ -47,7 +50,7 @@ public class UserDao {
     }
 
     //更新电话号码
-    public void update_phone(UserMolder user) {
+    public void update_phone(UserEntiy user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("update  user set phone=? where userid=?",
                 new Object[] { user.getPhone(), user.getUserid() });
@@ -55,7 +58,7 @@ public class UserDao {
     }
 
     //更新邮箱
-    public void update_email(UserMolder user) {
+    public void update_email(UserEntiy user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("update  user set emai=? where userid=?",
                 new Object[] { user.getEmail(), user.getUserid() });
@@ -63,7 +66,7 @@ public class UserDao {
     }
 
     //更新地区
-    public void update_adddress(UserMolder user) {
+    public void update_adddress(UserEntiy user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("update  user set address=? where userid=?",
                 new Object[] { user.getAddress(), user.getUserid() });
@@ -71,23 +74,22 @@ public class UserDao {
     }
 
     //更新签名
-    public void update_autograph(UserMolder user) {
+    public void update_autograph(UserEntiy user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("update  user set autograph=? where userid=?",
                 new Object[] { user.getAutograph(), user.getUserid() });
         db.close();
     }
 
-    public UserMolder find(String userid) {
+    public UserEntiy find(int id ) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();// 初始化SQLiteDatabase对象
         Cursor cursor = db
-                .rawQuery(
-                        "select userid,nickname,userpwd,sex,phone,image,address,email,autograph from user where userid = ?",
-                        new String[] { userid });// 根据编号查找便签信息，并存储到Cursor类中
+                .rawQuery("select userid,nickname,userpwd,sex,phone,image,address,email,autograph from user where userid = ?",
+                        new String[] { String.valueOf(id) });// 根据编号查找便签信息，并存储到Cursor类中
         if (cursor.moveToNext())// 遍历查找到的便签信息
         {
 
-            return new UserMolder(cursor.getString(cursor.getColumnIndex("userid")),
+            return new UserEntiy(cursor.getString(cursor.getColumnIndex("userid")),
                     cursor.getString(cursor.getColumnIndex("nickname")),
                     cursor.getString(cursor.getColumnIndex("userpwd")),
                     cursor.getString(cursor.getColumnIndex("sex")),

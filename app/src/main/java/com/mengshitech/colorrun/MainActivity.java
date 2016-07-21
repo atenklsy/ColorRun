@@ -17,6 +17,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.mengshitech.colorrun.fragment.history.HistoryFragment;
 import com.mengshitech.colorrun.fragment.history.histroyFragment;
 import com.mengshitech.colorrun.fragment.lerun.lerunFragment;
 import com.mengshitech.colorrun.fragment.me.meFragment;
@@ -92,7 +93,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 Utility.replace2MainFragment(fm, new showFragment());
                 break;
             case R.id.rbHistory:
-                Utility.replace2MainFragment(fm, new histroyFragment());
+                Utility.replace2MainFragment(fm, new HistoryFragment());
                 break;
             case R.id.rbMe:
                 Utility.replace2MainFragment(fm, new meFragment());

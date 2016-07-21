@@ -12,7 +12,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:text="请选择您的性别"/>
+        android:text="请选择您的性别"
+        android:textSize="20dp"/>
 
     <RadioGroup
         android:id="@+id/chosesex_radiogroup"
@@ -45,7 +46,6 @@
             android:textSize="17sp"
             android:text="女"
             android:textColor="@color/darkgrey"
-
             />
 
         <TextView
