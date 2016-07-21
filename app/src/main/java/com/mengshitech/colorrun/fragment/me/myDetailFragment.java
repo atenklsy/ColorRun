@@ -33,7 +33,7 @@ public class myDetailFragment extends BaseFragment implements View.OnClickListen
     public View initView() {
         mActivity = getActivity();
         mDeatilView = View.inflate(mActivity, R.layout.fragment_mydetail, null);
-        MainBackUtility.MainBack(mDeatilView,"个人信息",getFragmentManager());
+        MainBackUtility.MainBack(mDeatilView,"个人信息",getFragmentManager(),0);
         find();
         click();
 

@@ -12,11 +12,11 @@ import com.mengshitech.colorrun.R;
  * Created by kanghuicong on 2016/7/21  9:16.
  * 515849594@qq.com
  */
-public class MyshowListViewAdapter extends BaseAdapter {
+public class MyLerunListViewAdapter extends BaseAdapter {
     View view;
     Context context;
 
-    public MyshowListViewAdapter(Context context){
+    public MyLerunListViewAdapter(Context context){
         this.context = context;
     }
     @Override
@@ -38,7 +38,7 @@ public class MyshowListViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         Holder holder = null;
         if (convertView == null) {
-            view = View.inflate(context, R.layout.me_myshow_listview,
+            view = View.inflate(context, R.layout.me_mylerun_listview,
                     null);
             holder = new Holder();
             holder.myshow_name = (TextView)view.findViewById(R.id.tv_myshow_name);

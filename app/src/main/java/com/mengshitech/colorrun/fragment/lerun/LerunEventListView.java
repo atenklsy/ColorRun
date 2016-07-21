@@ -31,7 +31,7 @@ public class LerunEventListView extends BaseFragment{
     public View initView() {
         lerunevent = View.inflate(getActivity(), R.layout.lerun_event,null);
         MainActivity.rgMainBottom.setVisibility(View.GONE);
-        MainBackUtility.MainBack(lerunevent,"活动",getFragmentManager());
+        MainBackUtility.MainBack(lerunevent,"活动",getFragmentManager(),0);
         find();
         startAdapter();//listview的adapter
         return lerunevent;
