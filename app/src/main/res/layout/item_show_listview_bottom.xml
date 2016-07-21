@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvWordContent"
+        android:padding="5dp"
         android:text="2小时前" />
 
     <TextView
@@ -20,6 +21,7 @@
         android:layout_toLeftOf="@+id/tvShow_Comment"
         android:drawableLeft="@mipmap/show_heart"
         android:gravity="center"
+        android:padding="5dp"
         android:text="50" />
 
     <TextView
@@ -27,10 +29,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvWordContent"
-        android:layout_marginLeft="5dp"
+
         android:layout_toLeftOf="@+id/tvShow_Share"
         android:drawableLeft="@mipmap/show_comment"
         android:gravity="center"
+        android:padding="5dp"
         android:text="100" />
 
     <TextView
@@ -41,6 +44,7 @@
         android:layout_below="@+id/tvWordContent"
         android:layout_marginLeft="5dp"
         android:drawableLeft="@mipmap/show_share"
-        android:gravity="center" />
+        android:gravity="center"
+        android:padding="5dp" />
 
 </RelativeLayout>

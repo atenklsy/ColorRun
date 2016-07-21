@@ -3,7 +3,6 @@ package com.mengshitech.colorrun.adapter;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -19,7 +18,7 @@ import java.util.List;
  * Created by atenklsy on 2016/7/16 16:56.
  * E-address:atenk@qq.com.
  */
-public class ShowDetailCommentAdpter extends BaseAdapter implements AdapterView.OnItemClickListener {
+public class ShowDetailCommentAdpter extends BaseAdapter {
     List<CommentEntity> mCommentList;
     ListView mCommentListView;
     Activity mActivity;
@@ -64,13 +63,7 @@ public class ShowDetailCommentAdpter extends BaseAdapter implements AdapterView.
         holder.tvUserName.setText(mCommentEntity.getTvUserName());
         holder.tvSendTime.setText(mCommentEntity.getTvSendTime());
         holder.tvCommentContent.setText(mCommentEntity.getTvCommentContent());
-        mCommentListView.setOnItemClickListener(this);
         return convertView;
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, final int clickPosition, long id) {
-//        clickPosition是被点击的那个position
     }
 
     class ViewHolder {

@@ -32,7 +32,7 @@
             android:textSize="20sp" />
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -42,21 +42,29 @@
             android:id="@+id/etCreateShow_WordContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="30dp"
             android:background="@null"
-            android:hint="分享点精彩乐跑..." />
+            android:hint="分享点精彩乐跑..."
+            android:paddingBottom="30dp" />
+
+        <TextView
+            android:id="@+id/tvCreateShow_Zishu"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/etCreateShow_WordContent"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="0/140" />
 
         <GridView
             android:id="@+id/gvCreateShow_PicContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:numColumns="4">
-        </GridView>
+            android:layout_below="@+id/tvCreateShow_Zishu"
+            android:layout_marginTop="20dp"
+            android:numColumns="4" />
 
 
-
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>
