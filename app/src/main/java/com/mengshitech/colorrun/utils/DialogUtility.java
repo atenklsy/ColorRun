@@ -18,11 +18,16 @@ import android.widget.Toast;
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.fragment.BaseFragment;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by kanghuicong on 2016/7/21  9:36.
  * 515849594@qq.com
  */
 public class DialogUtility {
+
+    static Pattern number = Pattern.compile("[0-9]*");
 
     //修改电话号码
     public static void DialogPhone(final Context context, final TextView tv_phone){
@@ -36,6 +41,7 @@ public class DialogUtility {
         Button inputnumber_clear = (Button)layout.findViewById(R.id.btn_inputnumber_clear);
 
         addDialog(dialog,layout);
+
         //取消退出对话框
         inputnumber_cancel.setOnClickListener(new View.OnClickListener()
         {
@@ -49,7 +55,8 @@ public class DialogUtility {
             public void onClick(View v)
             {
                 String phone = et_inputnumber.getText().toString();
-                if (phone.trim().length() == 11){
+                Matcher m = number.matcher(phone);
+                if (phone.trim().length() == 11 && m.matches()){
                     tv_phone.setText(phone);
                     dialog.dismiss();
                 }
@@ -119,31 +126,57 @@ public class DialogUtility {
 
     }
 
-    //修改个性签名
-    public static void DialogAutograph(final Context context, final TextView tv_autograph){
+    //修改个性签名和邮箱
+    public static void DialogAutograph(String type,final Context context, final TextView tv_conent){
         LayoutInflater inflater = LayoutInflater.from(context);
         final Dialog dialog = new AlertDialog.Builder(context).create();
 
         final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_detail_autograph, null);
         final EditText revise_autograph = (EditText)layout.findViewById(R.id.et_autograph);
+        TextView title_autograph = (TextView)layout.findViewById(R.id.title_autograph);
         Button bt_autograph_conservation = (Button)layout.findViewById(R.id.bt_autograph_conservation);
 
         addDialog(dialog,layout);
-        revise_autograph.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
 
-        bt_autograph_conservation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String autograph = revise_autograph.getText().toString();
-                if (autograph.isEmpty()) {
-                    Toast.makeText(context, "请输入个性签名", Toast.LENGTH_SHORT)
-                            .show();
-                } else {
-                    tv_autograph.setText(autograph);
-                    dialog.dismiss();
-                }
-            }
-        });
+        switch (type){
+            case ("autograph"):
+                revise_autograph.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
+                bt_autograph_conservation.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String autograph = revise_autograph.getText().toString();
+                        if (autograph.isEmpty()) {
+                            Toast.makeText(context, "请输入个性签名", Toast.LENGTH_SHORT)
+                                    .show();
+                        } else {
+                            tv_conent.setText(autograph);
+                            dialog.dismiss();
+                        }
+                    }
+                });
+                break;
+            case ("email"):
+                title_autograph.setText("邮箱");
+                bt_autograph_conservation.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String email = revise_autograph.getText().toString();
+                        if (email.isEmpty()) {
+                            Toast.makeText(context, "请输入邮箱", Toast.LENGTH_SHORT)
+                                    .show();
+                        } else if(email == "^[a-zA-Z][\\w\\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z]$"){
+                            tv_conent.setText(email);
+                            dialog.dismiss();
+                        }else {
+                            Toast.makeText(context, "请输入正确的邮箱", Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    }
+                });
+                break;
+
+        }
+
     }
 
     //修改体重和身高
@@ -168,12 +201,13 @@ public class DialogUtility {
                     @Override
                     public void onClick(View v) {
                         String physique = et_physique.getText().toString();
-                        if (physique.isEmpty()) {
-                            Toast.makeText(context, "请输入身高", Toast.LENGTH_SHORT)
-                                    .show();
-                        } else {
+                        Matcher m = number.matcher(physique);
+                        if (m.matches()) {
                             tv_physique.setText(physique+"cm");
                             dialog.dismiss();
+                        }else{
+                            Toast.makeText(context, "请输入身高", Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     }
                 });
@@ -183,18 +217,17 @@ public class DialogUtility {
                     @Override
                     public void onClick(View v) {
                         String physique = et_physique.getText().toString();
-                        if (physique.isEmpty()) {
-                            Toast.makeText(context, "请输入体重", Toast.LENGTH_SHORT)
-                                    .show();
-                        } else {
+                        Matcher m = number.matcher(physique);
+                        if (m.matches()) {
                             tv_physique.setText(physique+"kg");
                             dialog.dismiss();
+                        }else {
+                            Toast.makeText(context, "请输入体重", Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     }
                 });
                 break;
-
-
         }
     }
 

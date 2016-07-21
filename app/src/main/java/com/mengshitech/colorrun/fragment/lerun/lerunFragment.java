@@ -18,7 +18,6 @@ import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.adapter.LeRunGridViewAdapter;
 import com.mengshitech.colorrun.adapter.LeRunListViewAdapter;
