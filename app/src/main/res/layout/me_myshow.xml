@@ -5,14 +5,10 @@
 
     <include layout="@layout/main_back"/>
 
-    <EditText
+    <ListView
+        android:id="@+id/lv_me_myshow"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/editText"
-        android:layout_gravity="center_horizontal" />
-
+        android:layout_height="match_parent">
+    </ListView>
 
 </LinearLayout>
