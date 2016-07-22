@@ -1,13 +1,7 @@
 package com.mengshitech.colorrun.fragment.me;
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.adapter.MyLerunListViewAdapter;
@@ -22,8 +16,7 @@ public class myLeRunFragment extends BaseFragment {
     View mLeRunView;
     MyListView myshow_listview;
     MyLerunListViewAdapter adapter;
-    ImageView title_back;
-    TextView title;
+    LinearLayout rlayout;
 
     @Override
     public View initView() {
@@ -46,5 +39,6 @@ public class myLeRunFragment extends BaseFragment {
 
     private void find() {
         myshow_listview = (MyListView) mLeRunView.findViewById(R.id.lv_me_myshow);
+        rlayout = (LinearLayout)mLeRunView.findViewById(R.id.title_tick);
     }
 }
