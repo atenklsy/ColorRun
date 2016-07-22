@@ -26,12 +26,14 @@ import java.util.List;
  * E-address:atenk@qq.com.
  */
 public class ChooseImageAdapter extends BaseAdapter implements View.OnClickListener {
-    Activity mActivity;
+    Activity mActivity, mmActivity;
     List<Bitmap> mImageList;
     GridView gvChooseImage;
     ImageView ivChooseImg;
     List<ImageView> imgList;
     AlertDialog.Builder builder;
+    ImageView clickImg;
+    onRecallAdapterWidget mWidget;
     Handler chooseImgHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -85,7 +87,9 @@ public class ChooseImageAdapter extends BaseAdapter implements View.OnClickListe
         for (int i = 0; i <= getItemId(clickPostion); i++) {
             imgList.add(ivChooseImg);
         }
-        imgList.get(mImageList.size() - 1).setOnClickListener(this);
+        clickImg = imgList.get(mImageList.size() - 1);
+        clickImg.setOnClickListener(this);
+
     }
 
 
@@ -107,7 +111,9 @@ public class ChooseImageAdapter extends BaseAdapter implements View.OnClickListe
                         , new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Utility.pickImage(mActivity);
+//                                Utility.pickImage(mActivity);
+//                                mWidget = (onRecallAdapterWidget) mmActivity;
+                                mWidget.solve();
 
                             }
                         }).create().show();
@@ -122,4 +128,14 @@ public class ChooseImageAdapter extends BaseAdapter implements View.OnClickListe
             }
         }).start();
     }
+
+    public void setmActivity(onRecallAdapterWidget widget) {
+        mWidget = widget;
+    }
+
+    public interface onRecallAdapterWidget {
+        void solve();
+    }
+
+
 }

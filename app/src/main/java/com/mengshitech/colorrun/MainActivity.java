@@ -3,6 +3,7 @@ package com.mengshitech.colorrun;
 import java.util.List;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -121,5 +122,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             finish();
             System.exit(0);
         }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

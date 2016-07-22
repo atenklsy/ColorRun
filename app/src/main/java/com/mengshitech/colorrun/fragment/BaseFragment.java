@@ -1,13 +1,19 @@
 package com.mengshitech.colorrun.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.mengshitech.colorrun.MainActivity;
+
+import java.util.List;
+
 /**
  * atenklsy
  */
@@ -35,6 +41,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         initData();
     }
 
@@ -52,5 +59,12 @@ public abstract class BaseFragment extends Fragment {
         // 返回的时候要显示radioGroup
         MainActivity.rgMainBottom.setVisibility(View.VISIBLE);
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("atenklsy", "BaseFragment进来这里了");
     }
 }
