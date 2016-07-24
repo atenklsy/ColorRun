@@ -138,7 +138,7 @@ public class myDetailFragment extends BaseFragment implements View.OnClickListen
             String path = IPAddress.PATH;
             Map<String, String> map = new HashMap<String, String>();
             map.put("flag", "user");
-            map.put("user_id", "1234");
+            map.put("user_id", userid);
             map.put("index", "4");
 
             String result = HttpUtils.sendHttpClientPost(path, map,

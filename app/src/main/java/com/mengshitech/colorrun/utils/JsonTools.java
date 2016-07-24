@@ -1,9 +1,16 @@
 package com.mengshitech.colorrun.utils;
 
+import android.util.Log;
+
+import com.mengshitech.colorrun.bean.OrderEntity;
 import com.mengshitech.colorrun.bean.UserEntiy;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kanghuicong on 2016/7/22  13:55.
@@ -31,5 +38,29 @@ public class JsonTools {
         info.setUser_phone(userObject.getString("user_phone"));
 
         return info;
+    }
+
+    public static List<OrderEntity> getOrderInfo(String key, String jsonString)
+            throws JSONException {
+        Log.i("jsonString",jsonString);
+        List<OrderEntity> list = new ArrayList<OrderEntity>();
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+        JSONArray jsonArray=jsonObject.getJSONArray(key);
+        for(int i=0;i<jsonArray.length();i++){
+            OrderEntity info = new OrderEntity();
+            JSONObject orderObject = jsonArray.getJSONObject(i);
+            info.setLerun_title(orderObject.getString("lerun_title"));
+            info.setLerun_time(orderObject.getString("lerun_time"));
+            info.setLerun_type(orderObject.getString("lerun_type"));
+            info.setLerun_poster(orderObject.getString("lerun_poster"));
+            info.setLerun_state(orderObject.getString("lerun_state"));
+            info.setLerun_id(orderObject.getString("lerun_id"));
+            info.setLerun_address(orderObject.getString("lerun_address"));
+            list.add(info);
+        }
+
+        Log.i("list的大小",list.size()+"");
+        return list;
     }
 }
