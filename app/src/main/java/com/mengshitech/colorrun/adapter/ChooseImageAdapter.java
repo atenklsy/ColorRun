@@ -34,13 +34,7 @@ public class ChooseImageAdapter extends BaseAdapter implements View.OnClickListe
     AlertDialog.Builder builder;
     ImageView clickImg;
     onRecallAdapterWidget mWidget;
-    Handler chooseImgHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            //在这里显示更新list、adapter和gridview
-            super.handleMessage(msg);
-        }
-    };
+
 
     public ChooseImageAdapter(Activity activity, List<Bitmap> imgList, GridView gridView) {
         mActivity = activity;
@@ -50,7 +44,7 @@ public class ChooseImageAdapter extends BaseAdapter implements View.OnClickListe
 
     @Override
     public int getCount() {
-        return mImageList.size();
+        return mImageList.size() ;
     }
 
     @Override
@@ -87,7 +81,7 @@ public class ChooseImageAdapter extends BaseAdapter implements View.OnClickListe
         for (int i = 0; i <= getItemId(clickPostion); i++) {
             imgList.add(ivChooseImg);
         }
-        clickImg = imgList.get(mImageList.size() - 1);
+        clickImg = imgList.get(mImageList.size());
         clickImg.setOnClickListener(this);
 
     }
@@ -111,22 +105,11 @@ public class ChooseImageAdapter extends BaseAdapter implements View.OnClickListe
                         , new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-//                                Utility.pickImage(mActivity);
-//                                mWidget = (onRecallAdapterWidget) mmActivity;
                                 mWidget.solve();
 
                             }
                         }).create().show();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
 
-//                mActivity.startActivityForResult(albumIntent, 1);
-                //在这里做选择照片的耗时操作
-                Message msg = chooseImgHandler.obtainMessage();
-//                chooseImgHandler.sendMessage(msg);
-            }
-        }).start();
     }
 
     public void setmActivity(onRecallAdapterWidget widget) {

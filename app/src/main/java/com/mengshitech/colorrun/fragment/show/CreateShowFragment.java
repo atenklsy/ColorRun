@@ -82,9 +82,9 @@ public class CreateShowFragment extends BaseFragment implements View.OnClickList
                         //这个方法是根据Uri获取Bitmap图片的静态方法
                         image = MediaStore.Images.Media.getBitmap(mActivity.getContentResolver(), mImageCaptureUri);
                         mImageList.add(image);
-                        Log.d("atenklsu", "mImageList的数量是" + mImageList.size());
+                        Log.d("atenklsy", "mImageList的数量是" + mImageList.size());
                         mChooseImageAdapter.notifyDataSetChanged();
-                        gvCreateShow_PicContent.setSelection(0);
+//                        gvCreateShow_PicContent.setSelection(0);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

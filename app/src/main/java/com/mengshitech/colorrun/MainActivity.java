@@ -125,6 +125,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("atenklsy", "MainActivity进来这里了");
         super.onActivityResult(requestCode, resultCode, data);
     }
 }
