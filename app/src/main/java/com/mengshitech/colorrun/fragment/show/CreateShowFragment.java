@@ -24,7 +24,7 @@ import java.util.List;
  * Created by atenklsy on 2016/7/18 14:23.
  * E-address:atenk@qq.com.
  */
-public class CreateShowFragment extends BaseFragment implements View.OnClickListener {
+public class CreateShowFragment extends BaseFragment implements View.OnClickListener, ChooseImageAdapter.onRecallAdapterWidget {
     View CreateShowView;
     TextView tvCreateShow_Cancel, tvCreateShow_Send;
     EditText etCreateShow_WordContent;
@@ -57,6 +57,7 @@ public class CreateShowFragment extends BaseFragment implements View.OnClickList
         tvCreateShow_Send.setOnClickListener(this);
         mChooseImageAdapter = new ChooseImageAdapter(mActivity, mImageList, gvCreateShow_PicContent);
         gvCreateShow_PicContent.setAdapter(mChooseImageAdapter);
+        mChooseImageAdapter.setmActivity(this);
     }
 
     private void initImagList() {
@@ -65,10 +66,11 @@ public class CreateShowFragment extends BaseFragment implements View.OnClickList
         mImageList.add(bmCHoosePic);
     }
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("atenklsy", "Create进来这里了");
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("atenklsy","进来这里了");
         if (requestCode == 1) {
             if (data != null) {
                 //取得返回的Uri,基本上选择照片的时候返回的是以Uri形式，但是在拍照中有得机子呢Uri是空的，所以要特别注意
@@ -80,8 +82,9 @@ public class CreateShowFragment extends BaseFragment implements View.OnClickList
                         //这个方法是根据Uri获取Bitmap图片的静态方法
                         image = MediaStore.Images.Media.getBitmap(mActivity.getContentResolver(), mImageCaptureUri);
                         mImageList.add(image);
+                        Log.d("atenklsy", "mImageList的数量是" + mImageList.size());
                         mChooseImageAdapter.notifyDataSetChanged();
-                        gvCreateShow_PicContent.setSelection(0);
+//                        gvCreateShow_PicContent.setSelection(0);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -106,14 +109,24 @@ public class CreateShowFragment extends BaseFragment implements View.OnClickList
                 //0.隐藏软键盘
 
                 //1.将数据发送到后台
+                Intent ablumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                ablumIntent.setType("image/*");
+                startActivityForResult(ablumIntent, 1);
 
                 //2.返回朋友圈并刷新数据
                 Toast.makeText(mActivity, "已经发送到朋友圈了！", Toast.LENGTH_SHORT).show();
-                fm.popBackStack();
+//                fm.popBackStack();
                 //返回到朋友圈自动刷新加载
                 break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public void solve() {
+        Intent ablumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        ablumIntent.setType("image/*");
+        startActivityForResult(ablumIntent, 1);
     }
 }
