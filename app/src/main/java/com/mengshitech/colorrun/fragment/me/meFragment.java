@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
+import com.mengshitech.colorrun.dao.UserDao;
 import com.mengshitech.colorrun.utils.Utility;
 
 /**

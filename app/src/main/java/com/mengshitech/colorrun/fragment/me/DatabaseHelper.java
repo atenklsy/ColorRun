@@ -16,14 +16,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, name, null, dbVersion);
     }
 
-    // ֻ�ڴ�����ʱ����һ��
     public void onCreate(SQLiteDatabase db) {
-        // �û�,ģʽѡ����ʷ��ݣ���!
-        db.execSQL("create table user(userid varchar(20) primary key,nickname varchar(20),userpwd varchar(20),sex varchar(2),phone varchar(20),image blob,email varchar(50),address varchar(50),autograph varchar(100))");
-
+        db.execSQL("create table user(user_id varchar(20) primary key, user_name varchar(50), user_pwd varchar(20), " +
+                "user_birthday varchar(10), user_sex varchar(10), user_header varchar(50), user_identity varchar(20), " +
+                "user_address varchar(50), user_bankid varchar (50), user_fullname varchar(20), user_level varchar(10), " +
+                "user_health varchar(10), user_height varchar(10), user_weight varchar(10), user_email varchar(20), " +
+                "user_state varchar(10), user_otherid varchar(10),user_sign varchar(100),user_phone varchar(15))");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
-
 }

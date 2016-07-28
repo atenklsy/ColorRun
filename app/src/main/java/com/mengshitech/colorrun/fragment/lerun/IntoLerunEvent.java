@@ -22,6 +22,8 @@ import android.widget.Toast;
 import com.mengshitech.colorrun.MainActivity;
 import com.mengshitech.colorrun.R;
 import com.mengshitech.colorrun.fragment.BaseFragment;
+import com.mengshitech.colorrun.utils.MainBackUtility;
+import com.mengshitech.colorrun.utils.Utility;
 
 /**
  * Created by kanghuicong on 2016/7/15.
@@ -30,14 +32,16 @@ import com.mengshitech.colorrun.fragment.BaseFragment;
 public class IntoLerunEvent extends BaseFragment implements OnClickListener {
     View into_lerun_view;
     TimeCount countdown;
-    ImageView poster, map, title_back;
-    TextView title_bar, address, name, origin, time, process, rule, price,
+    ImageView poster, map;
+    TextView  address, name, origin, time, process, rule, price,
             number, tx_entry;
-    LinearLayout bt_entry;
+    LinearLayout ll_entry;
 
     @Override
     public View initView() {
         into_lerun_view = View.inflate(getActivity(), R.layout.lerun_into, null);
+        MainBackUtility.MainBack(into_lerun_view,"活动详情",getFragmentManager(),0);
+
         find();
         click();// 点击事件
         entry_type();// 查看报名的状态
@@ -51,7 +55,7 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
         // TODO Auto-generated method stub
         if (Integer.valueOf(number.getText().toString()) == 0) {
             tx_entry.setText("报名人数已满");
-            bt_entry.setEnabled(false);
+            ll_entry.setEnabled(false);
         }
     }
 
@@ -66,9 +70,9 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
 
         if (type == "success") {
             number.setText(num + "");
-            bt_entry.setBackgroundColor(Color.parseColor("#cccccc"));
+            ll_entry.setBackgroundColor(Color.parseColor("#cccccc"));
             tx_entry.setText("已报名");
-            bt_entry.setEnabled(false);
+            ll_entry.setEnabled(false);
         }
     }
 
@@ -89,7 +93,7 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
         Log.i("Time_finish", Time_finish + "");
 
         countdown.setEndTime(System.currentTimeMillis()
-                + (Time_finish - Time_now));
+                + (Time_finish - Time_now),ll_entry,tx_entry);
     }
 
     // 活动结束时间转成时间戳
@@ -113,17 +117,12 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
 
     private void click() {
         // TODO Auto-generated method stub
-        bt_entry.setOnClickListener(this);//报名按钮
-        title_back.setOnClickListener(this);//返回上一页面
+        ll_entry.setOnClickListener(this);//报名按钮
         map.setOnClickListener(this);//点击地图放大
     }
 
     private void find() {
         // TODO Auto-generated method stub
-
-        title_bar = (TextView) into_lerun_view.findViewById(R.id.title_barr);// 标题
-        title_bar.setText("活动详情");
-        title_back = (ImageView) into_lerun_view.findViewById(R.id.title_back);// 返回
         poster = (ImageView) into_lerun_view.findViewById(R.id.into_lerun_poster);// 活动海报
         map = (ImageView) into_lerun_view.findViewById(R.id.into_lerun_map);// 活动路线地图
         address = (TextView) into_lerun_view.findViewById(R.id.into_lerun_address);// 活动地点
@@ -135,7 +134,7 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
         price = (TextView) into_lerun_view.findViewById(R.id.into_lerun_price);// 活动费用
         number = (TextView) into_lerun_view.findViewById(R.id.into_lerun_number);// 剩余名额
         countdown = (TimeCount) into_lerun_view.findViewById(R.id.into_lerun_countdown);// 剩余时间
-        bt_entry = (LinearLayout) into_lerun_view.findViewById(R.id.bt_into_lerun_entry);// 报名按钮
+        ll_entry = (LinearLayout) into_lerun_view.findViewById(R.id.bt_into_lerun_entry);// 报名按钮
         tx_entry = (TextView) into_lerun_view.findViewById(R.id.tx_into_lerun_entry);// 立即报名
     }
 
@@ -160,58 +159,11 @@ public class IntoLerunEvent extends BaseFragment implements OnClickListener {
 
                 entry_type();
                 break;
-            case R.id.title_back:
-                //返回上一页面
-                getFragmentManager().popBackStack();
-                break;
             case R.id.into_lerun_map:
                 //点击地图放大
-                toFragment(new ShowMap());
+                Utility.replace2DetailFragment(getFragmentManager(),new ShowMap());
             default:
                 break;
         }
     }
-    //fragment跳转到另一个fragment
-    private void toFragment(Fragment fragment) {
-        FragmentManager fmManager = getFragmentManager();
-        fmManager.beginTransaction().replace(R.id.flMain, fragment)
-                .addToBackStack("fragment").commit();
-    }
-
-    // Runnable runnable = new Runnable() {
-    //
-    // @Override
-    // public void run() {
-    // String path = util.ContentConstants.PATH;
-    // Map<String, String> map = new HashMap<String, String>();
-    // map.put("flag", "");
-    // map.put("shop_name", "");
-    // map.put("index", "");
-    // String result = util.HttpUtils.sendHttpClientPost(path, map,"utf-8");
-    //
-    // Message msg = new Message();
-    // msg.obj = result;
-    // handler.sendMessage(msg);
-    // }
-    // };
-    //
-    // Handler handler = new Handler() {
-    //
-    // public void handleMessage(Message msg) {
-    // String result = (String) msg.obj;
-    // if (result.equals("timeout")) {
-    // progressDialog.dismiss();
-    // Toast.makeText(IntoLerun.this, "连接服务器超时", Toast.LENGTH_SHORT)
-    // .show();
-    // } else {
-    // progressDialog.dismiss();
-    // try {
-    //
-    // } catch (JSONException e) {
-    // // TODO Auto-generated catch block
-    // e.printStackTrace();
-    // }
-    // }
-    // }
-    // };
 }

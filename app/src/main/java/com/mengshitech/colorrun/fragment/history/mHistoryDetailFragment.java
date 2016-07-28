@@ -17,5 +17,4 @@ public class mHistoryDetailFragment extends BaseFragment {
 				R.layout.fragment_mhistorydetail, null);
 		return mDeatilFragmentView;
 	}
-
 }

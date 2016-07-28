@@ -8,7 +8,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#11cd6e" >
+        android:background="#11cd6e"
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,13 +34,12 @@
         android:background="@color/white"
         android:padding="15dp" >
 
-        <ImageView
+        <com.mengshitech.colorrun.utils.RoundImageView
             android:id="@+id/ivUserHead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginRight="10dp"
-            android:paddingLeft="10dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/splash1" />
 
         <TextView
             android:id="@+id/tvUserName"

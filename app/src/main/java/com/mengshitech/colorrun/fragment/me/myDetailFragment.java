@@ -1,29 +1,27 @@
 package com.mengshitech.colorrun.fragment.me;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
-import android.text.Layout;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mengshitech.colorrun.R;
+import com.mengshitech.colorrun.bean.UserEntiy;
+import com.mengshitech.colorrun.dao.UserDao;
 import com.mengshitech.colorrun.fragment.BaseFragment;
-import com.mengshitech.colorrun.utils.Utility;
+import com.mengshitech.colorrun.utils.HttpUtils;
+import com.mengshitech.colorrun.utils.IPAddress;
+import com.mengshitech.colorrun.utils.JsonTools;
+import com.mengshitech.colorrun.utils.MainBackUtility;
+
+import org.json.JSONException;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -32,59 +30,68 @@ import com.mengshitech.colorrun.utils.Utility;
 public class myDetailFragment extends BaseFragment implements View.OnClickListener{
     View mDeatilView;
     FragmentManager fm;
-    LinearLayout me_head,me_nickname,me_phone,me_address,me_sex,me_land,me_autograph;
-    TextView tv_nickname,tv_phone,tv_sex;
-    String nickname;
-    private String sex;
-    private PopupWindow mPopupWindow;
+    LinearLayout me_head,me_nickname,me_phone,me_email,me_sex,me_height,me_weight,me_address,me_sign;
+    TextView tv_nickname,tv_phone,tv_sex,tv_height,tv_weight,tv_sign,tv_email,tv_address;
+    String userid = "1234";
 
     @Override
     public View initView() {
         mActivity = getActivity();
         mDeatilView = View.inflate(mActivity, R.layout.fragment_mydetail, null);
-        find();
-        click();
-        data();
-
-//        Bundle bundle = getArguments();
-//        nickname = bundle.getString("nickname");
-//        tv_nickname.setText(nickname);
-
+        MainBackUtility.MainBack(mDeatilView,"个人信息",getFragmentManager(),0);
+        FindId();
+        Click();
+        new Thread(runnable).start();
+//        FindData();
         return mDeatilView;
     }
 
-    private void data() {
-        Bundle bundle = getArguments();
-        if(bundle!=null){
-            String type = bundle.getString("type");
-            switch (type){
-                case "nickname":
-                    tv_nickname.setText(bundle.getString("nickname"));
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+//    private void FindData() {
+//
+//        UserDao dao=new UserDao(getActivity());
+//        UserEntiy user=dao.find(userid);
+//        if (user != null) {
+//            tv_nickname.setText(user.getUser_name());
+//            tv_phone.setText(user.getUser_phone());
+//            tv_email.setText(user.getUser_email());
+//            tv_sex.setText(user.getUser_sex());
+//            tv_height.setText(user.getUser_height());
+//            tv_weight.setText(user.getUser_weight());
+//            tv_address.setText(user.getUser_address());
+//            tv_sign.setText(user.getUser_sign());
+//        }else {
+//
+//        }
+//    }
 
-    private void click() {
-        me_sex.setOnClickListener(this);
-        me_phone.setOnClickListener(this);
+    private void Click() {
         me_nickname.setOnClickListener(this);
+        me_phone.setOnClickListener(this);
+        me_sex.setOnClickListener(this);
+        me_email.setOnClickListener(this);
+        me_height.setOnClickListener(this);
+        me_weight.setOnClickListener(this);
+        me_sign.setOnClickListener(this);
     }
 
-    private void find() {
+    private void FindId() {
         me_head = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_head);
         me_nickname = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_nickname);
         tv_nickname = (TextView)mDeatilView.findViewById(R.id.tv_me_nickname);
         me_phone = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_phone);
         tv_phone = (TextView)mDeatilView.findViewById(R.id.tv_me_phone);
-        me_address = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_address);
+        me_email = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_email);
+        tv_email = (TextView)mDeatilView.findViewById(R.id.tv_me_email);
         me_sex = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_sex);
         tv_sex = (TextView) mDeatilView.findViewById(R.id.tv_me_sex);
-        me_land = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_land);
-        me_autograph = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_autograph);
-
+        me_height = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_height);
+        tv_height = (TextView)mDeatilView.findViewById(R.id.tv_me_height);
+        me_weight = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_weight);
+        tv_weight = (TextView)mDeatilView.findViewById(R.id.tv_me_weight);
+        me_address = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_land);
+        tv_address = (TextView)mDeatilView.findViewById(R.id.tv_me_land);
+        me_sign = (LinearLayout)mDeatilView.findViewById(R.id.ll_me_autograph);
+        tv_sign = (TextView) mDeatilView.findViewById(R.id.tv_me_autograph);
     }
 
     @Override
@@ -95,22 +102,28 @@ public class myDetailFragment extends BaseFragment implements View.OnClickListen
 
                 break;
             case R.id.ll_me_nickname:
-                Utility.replace2DetailFragment(fm,new MeNickName());
+                DialogUtility.DialogNickname(getActivity(),tv_nickname,userid);
                 break;
             case R.id.ll_me_phone:
-                DialogPhone();
+                DialogUtility.DialogPhone(getActivity(),tv_phone,userid);
                 break;
-            case R.id.ll_me_address:
-
+            case R.id.ll_me_email:
+                DialogUtility.DialogAutograph("email",getActivity(),tv_email,userid);
                 break;
             case R.id.ll_me_sex:
-                DialogSex();
+                DialogUtility.DialogSex(getActivity(),tv_sex,userid);
+                break;
+            case R.id.ll_me_height:
+                DialogUtility.DialogPhysique("height",getActivity(),tv_height,userid);
+                break;
+            case R.id.ll_me_weight:
+                DialogUtility.DialogPhysique("weight",getActivity(),tv_weight,userid);
                 break;
             case R.id.ll_me_land:
 
                 break;
             case R.id.ll_me_autograph:
-
+                DialogUtility.DialogAutograph("sign",getActivity(),tv_sign,userid);
                 break;
 
             default:
@@ -118,76 +131,51 @@ public class myDetailFragment extends BaseFragment implements View.OnClickListen
         }
     }
 
-    //填写电话号码
-    private void DialogPhone(){
-        LayoutInflater inflater = LayoutInflater.from(getActivity());
-        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_revise_phone, null);
+    Runnable runnable = new Runnable() {
 
-        final Dialog dialog = new AlertDialog.Builder(getActivity()).create();
-        addDialog(dialog,layout);
+        @Override
+        public void run() {
+            String path = IPAddress.PATH;
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("flag", "user");
+            map.put("user_id", userid);
+            map.put("index", "4");
 
-        final EditText et_inputnumber = (EditText)layout.findViewById(R.id.et_inputnumber);
-        Button inputnumber_cancel = (Button)layout.findViewById(R.id.btn_inputnumber_cancel);
-        Button inputnumner_ok = (Button)layout.findViewById(R.id.btn_inputnumner_ok);
-        Button inputnumber_clear = (Button)layout.findViewById(R.id.btn_inputnumber_clear);
+            String result = HttpUtils.sendHttpClientPost(path, map,
+                    "utf-8");
+            Message msg = new Message();
+            msg.obj = result;
+            handler.sendMessage(msg);
+        }
+    };
 
-        //取消退出对话框
-        inputnumber_cancel.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) { dialog.dismiss(); }
-        });
-        //确认输入的号码
-        inputnumner_ok.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                String phone = et_inputnumber.getText().toString();
-                if (phone.trim().length() == 11){
-                    tv_phone.setText(phone);
-                    dialog.dismiss();
-                }
-                else {
-                    Toast.makeText(getActivity(), "请输入正确的手机号码", Toast.LENGTH_SHORT)
-                            .show();
+    Handler handler = new Handler() {
+
+        public void handleMessage(Message msg) {
+            String result = (String) msg.obj;
+
+            Log.i("result", result);
+            if (result.equals("timeout")) {
+//                progressDialog.dismiss();
+                Toast.makeText(getActivity(), "连接服务器超时", Toast.LENGTH_SHORT).show();
+            } else {
+//                progressDialog.dismiss();
+                try {
+                    UserEntiy userEntiy = JsonTools.getUserInfo("result",result);
+                    tv_nickname.setText(userEntiy.getUser_name());
+                    tv_phone.setText(userEntiy.getUser_phone());
+                    tv_email.setText(userEntiy.getUser_email());
+                    tv_sex.setText(userEntiy.getUser_sex());
+                    tv_height.setText(userEntiy.getUser_height()+"cm");
+                    tv_weight.setText(userEntiy.getUser_weight()+"kg");
+                    tv_address.setText(userEntiy.getUser_address());
+                    tv_sign.setText(userEntiy.getUser_sign());
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
             }
-        });
-        //清除输入的号码
-        inputnumber_clear.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) { et_inputnumber.setText(""); }
-        });
-    }
-
-    //选择性别
-    private void DialogSex() {
-        LayoutInflater inflater = LayoutInflater.from(getActivity());
-        final Dialog dialog = new AlertDialog.Builder(getActivity()).create();
-        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.me_choose_sex, null);
-        addDialog(dialog,layout);
-
-        RadioGroup radioGroup = (RadioGroup)layout .findViewById(R.id.chosesex_radiogroup);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup arg0, int arg1) {
-
-                int radioButtonId = arg0.getCheckedRadioButtonId();
-                RadioButton rb = (RadioButton) layout.findViewById(radioButtonId);
-                sex = rb.getText().toString();
-                tv_sex.setText(sex);
-                dialog.dismiss();
-            }
-        });
-    }
-
-    //添加窗口
-    private void addDialog(Dialog dialog,LinearLayout layout) {
-        dialog.setCancelable(false);
-        dialog.show();
-        dialog.getWindow().setContentView(layout);
-    }
+        }
+    };
 }

@@ -3,6 +3,7 @@ package com.mengshitech.colorrun.fragment.lerun;
 import java.util.Calendar;
 import android.content.Context;
 import android.database.ContentObserver;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.provider.Settings;
@@ -11,7 +12,10 @@ import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
 import android.util.AttributeSet;
+import android.widget.Button;
 import android.widget.DigitalClock;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Created by kanghuicong on 2016/7/15.
@@ -26,6 +30,8 @@ public class TimeCount extends DigitalClock {
     private Runnable mTicker;
     private Handler mHandler;
     private long endTime;
+    LinearLayout layout;
+    TextView tv;
     public static long distanceTime;
     private ClockListener mClockListener;
     private static boolean isFirst;
@@ -70,9 +76,15 @@ public class TimeCount extends DigitalClock {
                 distanceTime /= 1000;
                 if (distanceTime == 0) {
                     setText("00:00:00");
+                    layout.setBackgroundColor(Color.parseColor("#cccccc"));
+                    tv.setText("报名结束啦");
+                    layout.setEnabled(false);
                     onDetachedFromWindow();
                 } else if (distanceTime < 0) {
                     setText("00:00:00");
+                    layout.setBackgroundColor(Color.parseColor("#cccccc"));
+                    tv.setText("报名结束啦");
+                    layout.setEnabled(false);
                     onDetachedFromWindow();
                 } else {
                     setText(dealTime(distanceTime));
@@ -151,8 +163,11 @@ public class TimeCount extends DigitalClock {
      *
      * @param endTime
      */
-    public void setEndTime(long endTime) {
+    public void setEndTime(long endTime, LinearLayout layout, TextView tv) {
         this.endTime = endTime;
+        this.layout = layout;
+        this.tv = tv;
+
     }
     /**
      * Pulls 12/24 mode from system settings
